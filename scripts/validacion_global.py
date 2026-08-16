@@ -3,7 +3,7 @@ import subprocess
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 all_js_files = sorted((ROOT / 'js').glob('*.js'))
-app_js_files = [path for path in all_js_files if path.name != 'index.js']
+app_js_files = [path for path in all_js_files if path.name not in {'index.js', 'ayuda-apps.js'}]
 patterns = [
     'LeadModal', 'EmailGate', 'EmailGateModal', 'registrarLead',
     'script.google.com', 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI',
@@ -29,7 +29,7 @@ for path in all_js_files:
         print(path.name + ': ' + ', '.join(f'{pattern}={count}' for pattern, count in found))
 print(f'BUNDLE_RESIDUE_TOTAL={residue_total}')
 print('HTML_RESIDUES')
-html_paths = [ROOT / 'index.html'] + sorted((ROOT / 'html').glob('*.html'))
+html_paths = [ROOT / 'index.html'] + sorted(path for path in ROOT.glob('*.html') if path.name not in {'index.html', 'guia-uso-22-apps.html'})
 html_total = 0
 for path in html_paths:
     text = path.read_text(encoding='utf-8', errors='replace')

@@ -5,7 +5,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 html_paths = sorted(path for path in ROOT.glob('*.html') if path.name not in {'index.html', 'guia-uso-22-apps.html'})
 js_files = sorted((ROOT / 'js').glob('*.js'))
-app_js_files = [path for path in js_files if path.name != 'index.js']
+app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js'}]
 css_files = sorted((ROOT / 'css').glob('*.css'))
 errors = []
 
@@ -13,8 +13,8 @@ if not (ROOT / 'index.html').is_file():
     errors.append('Falta index.html en la raíz.')
 if len(html_paths) != 22:
     errors.append(f'Se esperaban 22 HTML en la raíz y hay {len(html_paths)}.')
-if len(css_files) != 23:
-    errors.append(f'Se esperaban 23 CSS incluyendo el portal y hay {len(css_files)}.')
+if len(css_files) != 24:
+    errors.append(f'Se esperaban 24 CSS incluyendo portal y ayuda común y hay {len(css_files)}.')
 if len(app_js_files) != 22:
     errors.append(f'Se esperaban 22 JS de aplicaciones y hay {len(app_js_files)}.')
 
@@ -40,7 +40,7 @@ for path in html_paths:
     title = re.search(r'<title>(.*?)</title>', text, re.S)
     if not title or any(token in title.group(1) for token in ('Ã', 'Â', 'â', 'ð', '�')):
         errors.append(f'{path.name} tiene un título ausente o con codificación dañada.')
-    expected = (f'./css/{name}.css', f'./js/{name}.js', './assets/favicon.png')
+    expected = (f'./css/{name}.css', f'./js/{name}.js', './css/ayuda-apps.css', './js/ayuda-apps.js', './assets/favicon.png')
     for ref in expected:
         if ref not in text:
             errors.append(f'{path.name} no referencia {ref}.')
@@ -48,6 +48,8 @@ for path in html_paths:
         target = ROOT / ref[2:]
         if not target.is_file():
             errors.append(f'{path.name} apunta a recurso inexistente: {ref}.')
+    if 'NUBEPYME_HELP_START' not in text or 'NP_HELP_CONFIG' not in text:
+        errors.append(f'{path.name} no integra el sistema de ayuda contextual.')
     bundle_path = ROOT / 'js' / f'{name}.js'
     bundle_text = bundle_path.read_text(encoding='utf-8', errors='replace') if bundle_path.is_file() else ''
     if name == 'auditor-seo-basico' and 'var ki={"title-len"' not in bundle_text:
