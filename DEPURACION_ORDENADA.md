@@ -35,3 +35,11 @@ Se eliminaron la sección `LeadForm`, los campos de nombre, correo y negocio, el
 Ambos bundles pasan `node --check` y no quedan referencias a `LeadForm`, `input-correo`, `registrarLead`, `TU_URL_DE_GOOGLE_APPS_SCRIPT`, `Panel de administración`, `function nm`, `function Jp` ni la ruta `/admin`.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 04 — Calculadora de Flete y Envío Local
+
+Se conservaron la calculadora de peso cobrable, zonas y paradas, cotización, historial local y generación del manifiesto/etiqueta de envío. Se retiró la sección `Lead Capture` de solicitud de proveedor logístico, junto con los campos de comercio, correo y teléfono, el envío a Google Apps Script y los mensajes de confirmación que prometían contacto externo.
+
+En el bundle se eliminó la lógica de captación y se dejó el flujo principal sin dependencia de correo ni proveedor externo. Las dos copias de la aplicación pasan `node --check` y no quedan referencias a `LeadForm`, `lead-form`, `registrarLeadFlete`, `TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI`, `REEMPLAZA_CON_TU_ID`, `script.google.com/macros` ni `Solicitar proveedor logístico`.
+
+Estado: **depurada y validada estructuralmente**.
