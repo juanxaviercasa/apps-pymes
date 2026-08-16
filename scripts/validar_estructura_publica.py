@@ -5,7 +5,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 html_paths = sorted(path for path in ROOT.glob('*.html') if path.name not in {'index.html', 'guia-uso-22-apps.html'})
 js_files = sorted((ROOT / 'js').glob('*.js'))
-app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js'}]
+app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js'}]
 css_files = sorted((ROOT / 'css').glob('*.css'))
 errors = []
 
@@ -13,8 +13,8 @@ if not (ROOT / 'index.html').is_file():
     errors.append('Falta index.html en la raíz.')
 if len(html_paths) != 22:
     errors.append(f'Se esperaban 22 HTML en la raíz y hay {len(html_paths)}.')
-if len(css_files) != 24:
-    errors.append(f'Se esperaban 24 CSS incluyendo portal y ayuda común y hay {len(css_files)}.')
+if len(css_files) != 25:
+    errors.append(f'Se esperaban 25 CSS incluyendo portal, ayuda y respaldo común y hay {len(css_files)}.')
 if len(app_js_files) != 22:
     errors.append(f'Se esperaban 22 JS de aplicaciones y hay {len(app_js_files)}.')
 
@@ -40,7 +40,9 @@ for path in html_paths:
     title = re.search(r'<title>(.*?)</title>', text, re.S)
     if not title or any(token in title.group(1) for token in ('Ã', 'Â', 'â', 'ð', '�')):
         errors.append(f'{path.name} tiene un título ausente o con codificación dañada.')
-    expected = (f'./css/{name}.css', f'./js/{name}.js', './css/ayuda-apps.css', './js/ayuda-apps.js', './assets/favicon.png')
+    expected = [f'./css/{name}.css', f'./js/{name}.js', './css/ayuda-apps.css', './js/ayuda-apps.js', './assets/favicon.png']
+    if name in {'generador-cotizaciones', 'creador-facturas-proforma', 'comparador-campanas-avanzado', 'consola-campanas', 'organizador-matriz-contenidos'}:
+        expected.extend(['./css/respaldo-local.css', './js/respaldo-local.js'])
     for ref in expected:
         if ref not in text:
             errors.append(f'{path.name} no referencia {ref}.')

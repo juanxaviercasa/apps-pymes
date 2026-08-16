@@ -23,8 +23,8 @@ def run(command: list[str]) -> None:
 def optimize() -> None:
     css_files = sorted(CSS_DIR.glob('*.css'))
     js_files = sorted(JS_DIR.glob('*.js'))
-    if len(css_files) != 23 or len(js_files) != 23:
-        raise SystemExit(f'Se esperaban 23 CSS y 23 JS; encontrados {len(css_files)} CSS y {len(js_files)} JS.')
+    if len(css_files) != 25 or len(js_files) != 25:
+        raise SystemExit(f'Se esperaban 25 CSS y 25 JS; encontrados {len(css_files)} CSS y {len(js_files)} JS.')
 
     before = {str(p.relative_to(ROOT)): size(p) for p in [*css_files, *js_files]}
     with tempfile.TemporaryDirectory(prefix='apps-pymes-assets-') as tmp:
