@@ -15,3 +15,13 @@ La captura no tenía una entrega local de plantillas: el HTML apuntaba a `TU_URL
 La función principal se conservó. Ambos bundles pasan `node --check`, y no quedan referencias activas a `LeadCapture`, `registrarLeadTitulares`, `TU_URL_DE_GOOGLE_APPS_SCRIPT`, `sgcaptcha/contact` ni al montaje de la sección de plantillas.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 02 — Auditor Básico de SEO On-Page
+
+La aplicación conserva el auditor local de URL, metatítulos, descripciones, palabras clave, H1, vistas previas SERP y sociales, checklist de salud, sugerencias, lista de tareas, densidad de contenido, comparador, historial local y los controles de análisis existentes.
+
+Se identificó una sección de upsell que prometía una auditoría completa y abría `LeadModal`. El modal enviaba un correo a `/sgcaptcha/contact` y no producía el informe avanzado dentro de la aplicación. Se eliminó la sección del HTML, el script de captación, el montaje del modal y la definición completa del componente muerto en ambos bundles. También se conservaron las funciones locales y el historial.
+
+Ambos bundles pasan `node --check` y no quedan referencias a `LeadModal`, `sgcaptcha/contact`, `Obtener auditoría completa gratis`, la sección de upsell ni `TU_URL_DE_GOOGLE_APPS_SCRIPT`.
+
+Estado: **depurada y validada estructuralmente**.
