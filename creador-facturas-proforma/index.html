@@ -513,51 +513,6 @@
       </main>
     </div>
   </div>
-
-  <!-- SCRIPT DE CAPTURA DE LEADS -->
-  <script>
-    function registrarLead(event) {
-      // Evita recargar si se hace submit de un form (aunque aquÃ­ es un botÃ³n en un div)
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('input-correo');
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      if (!email) {
-        // Opcional: mostrar advertencia si el correo estÃ¡ vacÃ­o
-        console.warn('El correo estÃ¡ vacÃ­o, no se puede registrar el lead.');
-        return;
-      }
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-      })
-      .then(() => {
-        console.log('Lead de proforma registrado con Ã©xito.');
-        // Opcional: alert('Enviado correctamente'); o lÃ³gica para enviar realmente el correo.
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnEnviar = document.getElementById('btn-enviar-lead');
-      if (btnEnviar) {
-        // En este diseÃ±o "Enviar al Cliente" es un botÃ³n normal (no de submit en form)
-        btnEnviar.addEventListener('click', registrarLead);
-      }
-    });
-  </script>
 </body>
 </html>
 

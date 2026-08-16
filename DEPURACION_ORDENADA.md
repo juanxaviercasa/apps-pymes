@@ -91,3 +91,11 @@ Se conservaron la conversión local mediante Canvas, optimización, procesamient
 Los dos bundles pasan `node --check` y no quedan referencias a captación, curso, captcha, correo ni endpoints externos.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 11 — Creador de Facturas Proforma
+
+Se conservaron el campo de correo del cliente como dato operativo, la validación de la proforma, el modal funcional de confirmación, el envío local mediante `mailto:`, la descarga PDF, el historial, respaldo/importación y el cálculo del documento. Se retiraron el script HTML duplicado de captación, la persistencia de leads en `vc859342100467.coderick.net`, la notificación por captcha en `/sgcaptcha/*` y la etiqueta residual `LeadModal` del metadato visual. No se eliminó el correo del cliente porque sí se utiliza para el envío local de la proforma.
+
+Los dos bundles pasan `node --check`; no quedan referencias al backend de leads, captcha, `coderick.net` ni URLs de captación, mientras siguen presentes `mailto:`, `Descargar PDF` y `Enviar al Cliente`.
+
+Estado: **depurada y validada estructuralmente**.
