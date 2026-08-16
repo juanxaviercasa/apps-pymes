@@ -508,93 +508,16 @@
             Ingresa costo y precio normal arriba para activar la campaÃ±a flash.
           </p>
         </section>
-
-        <!-- SecciÃ³n Captura de Lead -->
-        <section class="rounded-panel border border-navy-800 bg-navy-900/40 p-5 sm:p-7" data-visual-edit-loc="src/pages/Home.tsx:184:8" data-visual-edit-component="section" data-visual-edit-editable="false">
-          <h2 class="font-display text-xl font-bold text-white" data-visual-edit-loc="src/pages/Home.tsx:185:10" data-visual-edit-component="h2" data-visual-edit-editable="true">Recibe el anÃ¡lisis completo en tu correo</h2>
-          <p class="mt-1.5 mb-5 text-sm text-blue-light/65" data-visual-edit-loc="src/pages/Home.tsx:188:10" data-visual-edit-component="p" data-visual-edit-editable="true">
-            Te enviamos esta simulaciÃ³n y te acompaÃ±amos a diseÃ±ar promociones rentables para tu pyme.
-          </p>
-          <form class="space-y-3" data-visual-edit-loc="src/components/LeadForm.tsx:105:4" data-visual-edit-component="form" data-visual-edit-editable="false">
-            <div class="grid gap-3 sm:grid-cols-2" data-visual-edit-loc="src/components/LeadForm.tsx:106:6" data-visual-edit-component="div" data-visual-edit-editable="false">
-              <input class="w-full rounded-xl border border-navy-700 bg-navy-950/60 px-4 py-3 text-white placeholder:text-blue-light/30 outline-none transition-colors focus:border-blue-mid" placeholder="Tu nombre" aria-label="Nombre" data-visual-edit-loc="src/components/LeadForm.tsx:107:8" data-visual-edit-component="input" data-visual-edit-editable="false" value="">
-              <input id="input-correo" class="w-full rounded-xl border border-navy-700 bg-navy-950/60 px-4 py-3 text-white placeholder:text-blue-light/30 outline-none transition-colors focus:border-blue-mid" placeholder="Correo electrÃ³nico" aria-label="Correo electrÃ³nico" data-visual-edit-loc="src/components/LeadForm.tsx:114:8" data-visual-edit-component="input" data-visual-edit-editable="false" type="email" value="">
-            </div>
-            <input class="w-full rounded-xl border border-navy-700 bg-navy-950/60 px-4 py-3 text-white placeholder:text-blue-light/30 outline-none transition-colors focus:border-blue-mid" placeholder="Nombre de tu negocio (opcional)" aria-label="Negocio" data-visual-edit-loc="src/components/LeadForm.tsx:123:6" data-visual-edit-component="input" data-visual-edit-editable="false" value="">
-            <button id="btn-enviar-lead" type="submit" disabled="" class="flex w-full items-center justify-center gap-2 rounded-xl bg-ignite-500 px-6 py-3.5 font-display text-base font-bold text-white transition-colors hover:bg-ignite-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ignite-500 disabled:cursor-not-allowed disabled:opacity-45" data-visual-edit-loc="src/components/LeadForm.tsx:138:6" data-visual-edit-component="button" data-visual-edit-editable="false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send" data-visual-edit-loc="src/components/LeadForm.tsx:149:12" data-visual-edit-component="Send" data-visual-edit-editable="false">
-                <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
-                <path d="m21.854 2.147-10.94 10.939"></path>
-              </svg>
-              Enviar simulaciÃ³n a mi correo
-            </button>
-            <p class="text-center text-xs text-blue-light/45" data-visual-edit-loc="src/components/LeadForm.tsx:154:8" data-visual-edit-component="p" data-visual-edit-editable="true">
-              Completa el costo y el precio normal para habilitar el envÃ­o.
-            </p>
-          </form>
-        </section>
-
-        <!-- Footer -->
+<!-- Footer -->
         <footer class="flex flex-col items-center gap-3 pt-4 pb-8 text-center text-xs text-blue-light/40" data-visual-edit-loc="src/pages/Home.tsx:203:8" data-visual-edit-component="footer" data-visual-edit-editable="false">
           <p data-visual-edit-loc="src/pages/Home.tsx:204:10" data-visual-edit-component="p" data-visual-edit-editable="true">
             Los resultados son estimaciones basadas en los datos ingresados.
           </p>
-          <a class="inline-flex items-center gap-1.5 rounded-lg border border-navy-700 px-3 py-1.5 font-semibold text-blue-light/60 transition-colors hover:border-blue-mid hover:text-blue-light" data-visual-edit-loc="src/pages/Home.tsx:205:10" data-visual-edit-component="Link" data-visual-edit-editable="true" href="/admin">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock" data-visual-edit-loc="src/pages/Home.tsx:209:12" data-visual-edit-component="Lock" data-visual-edit-editable="false">
-              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
-            Panel de administraciÃ³n
-          </a>
-        </footer>
+</footer>
 
       </main>
     </div>
   </div>
-
-  <script>
-    function registrarLead(event) {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('input-correo');
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      if (!email) return;
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-      })
-      .then(() => {
-        console.log('Lead registrado con Ã©xito.');
-        // Puedes agregar lÃ³gica adicional aquÃ­, como mostrar un mensaje o generar el PDF
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnEnviar = document.getElementById('btn-enviar-lead');
-      if (btnEnviar) {
-        const leadForm = btnEnviar.closest('form');
-        if (leadForm) {
-          leadForm.addEventListener('submit', registrarLead);
-        } else {
-          // Fallback en caso de que el botÃ³n no estÃ© dentro de un formulario
-          btnEnviar.addEventListener('click', registrarLead);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
 

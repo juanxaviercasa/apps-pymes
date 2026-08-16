@@ -25,3 +25,13 @@ Se identificó una sección de upsell que prometía una auditoría completa y ab
 Ambos bundles pasan `node --check` y no quedan referencias a `LeadModal`, `sgcaptcha/contact`, `Obtener auditoría completa gratis`, la sección de upsell ni `TU_URL_DE_GOOGLE_APPS_SCRIPT`.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 03 — Calculadora de Descuentos y Promociones
+
+La función útil de esta aplicación está compuesta por las calculadoras de precio promocional, margen, punto de equilibrio, combos, valor de vida del cliente, textos de copywriting y campaña flash. Todas trabajan con los datos ingresados localmente y se conservaron.
+
+Se eliminaron la sección `LeadForm`, los campos de nombre, correo y negocio, el envío a `TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI`, el enlace y la ruta `/admin`, y las funciones completas de administración y captación que quedaron sin consumidor. La depuración se aplicó en las dos páginas y en los dos bundles.
+
+Ambos bundles pasan `node --check` y no quedan referencias a `LeadForm`, `input-correo`, `registrarLead`, `TU_URL_DE_GOOGLE_APPS_SCRIPT`, `Panel de administración`, `function nm`, `function Jp` ni la ruta `/admin`.
+
+Estado: **depurada y validada estructuralmente**.
