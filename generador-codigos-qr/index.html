@@ -12,10 +12,10 @@
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script>
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script>
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script>
-  
+
   <script type="module" crossorigin="" src="./assets/index.js"></script>
   <link rel="stylesheet" crossorigin="" href="./assets/index.css">
-  
+
   <script>
     (() => {
       let e = new URLSearchParams(window.location.search).get("sgv");
@@ -70,10 +70,10 @@
       document.readyState === "complete" || document.readyState === "interactive" ? s() : document.addEventListener("DOMContentLoaded", s);
     })();
   </script>
-  
+
   <script type="text/javascript" charset="utf-8" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script>
   <script type="text/javascript" charset="utf-8" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script>
-  
+
   <script>
     (function(){var e=`sg-preview`;function t(e){"@babel/helpers - typeof";return t=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},t(e)}function n(e,n){if(t(e)!=`object`||!e)return e;var r=e[Symbol.toPrimitive];if(r!==void 0){var i=r.call(e,n||`default`);if(t(i)!=`object`)return i;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(n===`string`?String:Number)(e)}function r(e){var r=n(e,`string`);return t(r)==`symbol`?r:r+``}function i(e,t,n){return(t=r(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var a=class{constructor(e){if(i(this,`source`,void 0),i(this,`allowedOrigins`,void 0),i(this,`targetOrigin`,void 0),i(this,`debug`,void 0),i(this,`messageHandlers`,new Map),!e.allowedOrigins?.length)throw Error(`[EventCommunicator] allowedOrigins is required`);this.source=e.source,this.allowedOrigins=e.allowedOrigins,this.targetOrigin=e.targetOrigin||`*`,this.debug=e.debug||!1,e.messageHandlers&&this.registerMessageHandlers(e.messageHandlers),e.domEvents&&this.registerDOMEvents(e.domEvents),this.initMessageListener()}log(...e){this.debug&&console.log(`[EventCommunicator]`,...e)}formatEventType(t){return`${e}:${t}`}parseEventType(t){let n=`${e}:`;return t.startsWith(n)?t.slice(n.length):null}isOriginAllowed(e){return this.allowedOrigins.some(t=>t===`*`?!0:e===t||e.endsWith(t))}initMessageListener(){window.addEventListener(`message`,e=>{if(this.log(`Message received from:`,e.origin),!this.isOriginAllowed(e.origin)){console.warn(`[EventCommunicator] Wrong origin:`,e.origin);return}let t=e.data;if(!t?.type)return;let n=this.parseEventType(t.type);if(!n)return;this.log(`Parsed event type:`,n);let r=this.messageHandlers.get(n);r?r(t.payload):this.log(`No handler for:`,n)})}registerMessageHandlers(e){Object.entries(e).forEach(([e,t])=>{this.messageHandlers.set(e,t)})}registerDOMEvents(e){e.forEach(({event:e,handler:t,options:n})=>{window.addEventListener(e,t,n)})}getTargetWindow(){try{if(window.parent&&window.parent!==window)return window.parent;if(window.top&&window.top!==window)return window.top;if(window.opener)return window.opener}catch{if(window.parent&&window.parent!==window)return window.parent}return null}send(e,t){let n=this.getTargetWindow();if(!n)return;let r={type:this.formatEventType(e),source:this.source,payload:t??null,timestamp:new Date().toISOString()};n.postMessage(r,this.targetOrigin)}},o=null;function s(e,t,n){return e.includes(`Failed to fetch dynamically imported module`)?`module-load-error`:e===`Script error.`?`script-origin-error`:e.includes(`ResizeObserver loop limit exceeded`)?`resize-observer-error`:e.includes(`ReferenceError`)?`react-reference-error`:e.includes(`TypeError`)?`react-type-error`:e.includes(`is not defined`)?`react-reference-error`:e.includes(`Cannot read prop`)?`react-property-error`:e.includes(`Cannot access before initialization`)?`react-initialization-error`:e.includes(`is not a function`)?`react-function-error`:n&&n.includes(`ErrorBoundary`)?`react-boundary-error`:t&&t.includes(`renderWithHooks`)?`react-render-error`:t&&t.includes(`updateFunctionComponent`)?`react-component-error`:t&&t.includes(`@react-refresh`)?`react-hmr-error`:`react-runtime-error`}function c(e){if(!e)return{file:null,line:null,column:null};for(let t of[/at\s+.*?\s+\(([^:]+):(\d+):(\d+)\)/,/([^:@\s]+\.(?:tsx?|jsx?)):(\d+):(\d+)/,/\(([^:]+):(\d+):(\d+)\)/,/(\w+)?@([^:]+):(\d+):(\d+)/]){let n=e.match(t);if(n)return{file:n[1]||n[2],line:parseInt(n[2]||n[3],10),column:parseInt(n[3]||n[4],10)}}return{file:null,line:null,column:null}}function l(e){if(!o)return;let t=c(e.stack),n={type:s(e.message,e.stack,e.componentStack),message:e.message,file:t.file,line:t.line,column:t.column,stack:e.stack,componentStack:e.componentStack,environment:`development`,errorSource:e.source,userAgent:navigator.userAgent,url:window.location.href};o.send(`RUNTIME_ERROR`,n)}var u=e=>{try{let t=e.target;if(t&&t instanceof HTMLElement){let e=t.tagName.toUpperCase(),n=t.src||t.href||`unknown`;l({message:`Failed to load resource: `+e+` from `+n,source:`resource-loader`,stack:null,componentStack:null})}else{let t=e;l({message:t.message||`Runtime error`,source:`window-onerror`,stack:t.error?t.error.stack:null,componentStack:null})}}catch(e){console.error(`[SG Preview - Reporter] Internal error in onerror handler:`,e)}},d=e=>{try{let t=e.reason;l({message:t?.message||t||`Unhandled promise rejection`,source:`unhandled-rejection`,stack:t?.stack,componentStack:null})}catch(e){console.error(`[SG Preview - Reporter] Internal error in unhandledrejection handler:`,e)}},f=console.error;function p(e=[`*`]){o||(o=new a({source:`error-reporter`,allowedOrigins:e,domEvents:[{event:`error`,handler:u,options:!0},{event:`unhandledrejection`,handler:d}]}),console.error=function(...e){try{let t=e.join(` `);if(t.includes(`Error handled by React Router default ErrorBoundary`)||t.includes(`React will try to recreate this component tree`)||t.includes(`The above error occurred in the`)||t.includes(`React Router caught the following error during render`)||/Minified React error #\d+/.test(t)||t.includes(`ResizeObserver loop limit exceeded`)){let n=e.find(e=>e instanceof Error),r=e.find(e=>typeof e==`object`&&e&&`componentStack`in e);l({message:n?n.message:t,source:`console-error`,stack:n?n.stack:null,componentStack:r?.componentStack??null})}}catch(e){console.error(`[SG Preview - Reporter] Internal error in console.error wrapper:`,e)}f.apply(console,e)},console.log(`[SG Preview - Runtime Reporter] Initialized.`))}p([`*`])})();</script>
   <script>(function(){var e=`sg-preview`;function t(e){"@babel/helpers - typeof";return t=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},t(e)}function n(e,n){if(t(e)!=`object`||!e)return e;var r=e[Symbol.toPrimitive];if(r!==void 0){var i=r.call(e,n||`default`);if(t(i)!=`object`)return i;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(n===`string`?String:Number)(e)}function r(e){var r=n(e,`string`);return t(r)==`symbol`?r:r+``}function i(e,t,n){return(t=r(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var a=class{constructor(e){if(i(this,`source`,void 0),i(this,`allowedOrigins`,void 0),i(this,`targetOrigin`,void 0),i(this,`debug`,void 0),i(this,`messageHandlers`,new Map),!e.allowedOrigins?.length)throw Error(`[EventCommunicator] allowedOrigins is required`);this.source=e.source,this.allowedOrigins=e.allowedOrigins,this.targetOrigin=e.targetOrigin||`*`,this.debug=e.debug||!1,e.messageHandlers&&this.registerMessageHandlers(e.messageHandlers),e.domEvents&&this.registerDOMEvents(e.domEvents),this.initMessageListener()}log(...e){this.debug&&console.log(`[EventCommunicator]`,...e)}formatEventType(t){return`${e}:${t}`}parseEventType(t){let n=`${e}:`;return t.startsWith(n)?t.slice(n.length):null}isOriginAllowed(e){return this.allowedOrigins.some(t=>t===`*`?!0:e===t||e.endsWith(t))}initMessageListener(){window.addEventListener(`message`,e=>{if(this.log(`Message received from:`,e.origin),!this.isOriginAllowed(e.origin)){console.warn(`[EventCommunicator] Wrong origin:`,e.origin);return}let t=e.data;if(!t?.type)return;let n=this.parseEventType(t.type);if(!n)return;this.log(`Parsed event type:`,n);let r=this.messageHandlers.get(n);r?r(t.payload):this.log(`No handler for:`,n)})}registerMessageHandlers(e){Object.entries(e).forEach(([e,t])=>{this.messageHandlers.set(e,t)})}registerDOMEvents(e){e.forEach(({event:e,handler:t,options:n})=>{window.addEventListener(e,t,n)})}getTargetWindow(){try{if(window.parent&&window.parent!==window)return window.parent;if(window.top&&window.top!==window)return window.top;if(window.opener)return window.opener}catch{if(window.parent&&window.parent!==window)return window.parent}return null}send(e,t){let n=this.getTargetWindow();if(!n)return;let r={type:this.formatEventType(e),source:this.source,payload:t??null,timestamp:new Date().toISOString()};n.postMessage(r,this.targetOrigin)}},o=`STRIPE_CHECKOUT_BLOCKED`,s=`checkout.stripe.com`,c=/https:\/\/checkout\.stripe\.com\/[^\s"'<>\\]+/g,l=[`url`,`checkoutUrl`,`checkout_url`,`redirectUrl`,`redirect_url`,`sessionUrl`,`session_url`],u=null,d=e=>{if(typeof e!=`string`||!e)return!1;try{return new URL(e,window.location.origin).host===s}catch{return!1}},f=(e,t=0)=>{if(t>4||!e||typeof e!=`object`)return null;let n=e;for(let e of l){let t=n[e];if(typeof t==`string`&&d(t))return t}for(let e of Object.keys(n)){let r=f(n[e],t+1);if(r)return r}return null},p=e=>{if(!e||e.indexOf(`checkout.stripe.com`)===-1)return null;try{let t=f(JSON.parse(e));if(t)return t}catch{}let t=e.match(c);return t?t[0]:null},m=e=>{try{let t=typeof e==`string`?e:e instanceof URL?e.href:e.url,n=new URL(t,window.location.origin).pathname;return n===`/api/checkout`||n.endsWith(`/api/checkout`)}catch{return!1}},h=()=>{let e=window.fetch.bind(window);window.fetch=async function(t,n){let r=window.location.href,i=await e(t,n);try{let e=m(t),n=(i.headers.get(`content-type`)||``).toLowerCase(),a=n.includes(`json`)||n.startsWith(`text/`);if(e||a){let t=p(await i.clone().text());if(t){let n=e?`fetch-api-checkout`:`fetch-response`;u?.send(o,{url:t,source:n,pageUrl:r})}}}catch(e){console.log(e)}return i}};function g(e=[`*`]){window.self!==window.top&&(u||(u=new a({source:`stripe-interceptor`,allowedOrigins:e}),h(),console.log(`[SG Stripe] Initialized.`)))}g([`*`])})();</script>
@@ -229,7 +229,7 @@
 `);document.documentElement.style.display=``,document.documentElement.style.height=`100%`,document.documentElement.style.width=`100%`,document.head&&(document.head.innerHTML=`<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       ${n}
       ${r}`),document.body&&(document.body.innerHTML=``,document.body.style.margin=`0`,document.body.style.padding=`0`,document.body.style.overflow=`hidden`,document.body.style.height=`100%`,document.body.style.width=`100%`,document.body.style.display=`flex`,document.body.style.flexDirection=`column`,document.body.style.backgroundColor=`var(--color-background-inverse, #363636)`),m(),document.body.appendChild(h(e));let i=document.createElement(u.Div);i.className=`sg-preview-iframe-wrapper`;let a=document.createElement(u.Iframe);a.id=`sg-preview-iframe`,a.src=window.location.href,i.appendChild(a),document.body.appendChild(i),window.addEventListener(`message`,e=>{if(e.origin===window.location.origin){if(e.data?.type===g){let t=e.data?.payload?.url;if(!_(t))return;window.location.href=t;return}if(e.data?.type===`sg-preview-nav`&&e.data?.url){let t=new URLSearchParams(window.location.search),n=t.get(`p`),r=t.get(`d`),i=e.data.url;try{let e=new URL(i,window.location.origin);n&&e.searchParams.get(`p`)!==n&&e.searchParams.set(`p`,n),r&&e.searchParams.get(`d`)!==r&&e.searchParams.set(`d`,r),i=e.href.replace(e.origin,``)}catch{}window.location.pathname+window.location.search+window.location.hash!==i&&(e.data.action===`push`?window.history.pushState(null,``,i):window.history.replaceState(null,``,i))}}}),window.addEventListener(`popstate`,()=>{a.contentWindow&&a.contentWindow.location.replace(window.location.href)})},y=()=>{function e(e){try{if(!e||typeof e!=`string`&&!(e instanceof URL))return e;let t=window.location.origin,n=new URL(String(e),t);if(n.origin===t){let e=new URLSearchParams(window.location.search),t=e.get(`p`),r=e.get(`d`);return t&&n.searchParams.get(`p`)!==t&&n.searchParams.set(`p`,t),r&&n.searchParams.get(`d`)!==r&&n.searchParams.set(`d`,r),n.href.replace(n.origin,``)}return e}catch{return e}}let t=(e=`replace`)=>{try{if(window.parent===window)return;let t=window.location.pathname+window.location.search+window.location.hash;window.parent.postMessage({type:`sg-preview-nav`,url:t,action:e},window.location.origin)}catch{}},n=window.open;window.open=function(...t){return t[0]&&(t[0]=e(t[0])),n.apply(this,t)};let r=history.pushState;history.pushState=function(...n){n[2]&&(n[2]=e(n[2]));let i=r.apply(this,n);return setTimeout(()=>t(`push`),10),i};let i=history.replaceState;history.replaceState=function(...n){n[2]&&(n[2]=e(n[2]));let r=i.apply(this,n);return setTimeout(()=>t(`replace`),10),r},document.addEventListener(`click`,t=>{let n=t.target?.closest(`a`);if(!n||!n.href||n.href.startsWith(`mailto:`)||n.href.startsWith(`tel:`)||n.href.startsWith(`javascript:`))return;let r=e(n.href),i=typeof r==`string`?r:String(r);n.href!==i&&(n.href=i)},!0),window.addEventListener(`popstate`,()=>{setTimeout(()=>t(`replace`),10)}),window.addEventListener(`hashchange`,()=>{setTimeout(()=>t(`replace`),10)}),t(`replace`)};new URLSearchParams(window.location.search).get(`p`)===`1`&&(window===window.top?(document.documentElement.style.display=`none`,document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,v):v()):document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,y):y())})();</script>
-  <script>window.__SG_PREVIEW_ROUTES = {"isSPA":true,"routes":["/","/admin"]};</script>
+  <script>window.__SG_PREVIEW_ROUTES = {"isSPA":true,"routes":["/"]};</script>
   <script>(function(){var e=`sg-preview`;function t(e){"@babel/helpers - typeof";return t=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},t(e)}function n(e,n){if(t(e)!=`object`||!e)return e;var r=e[Symbol.toPrimitive];if(r!==void 0){var i=r.call(e,n||`default`);if(t(i)!=`object`)return i;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(n===`string`?String:Number)(e)}function r(e){var r=n(e,`string`);return t(r)==`symbol`?r:r+``}function i(e,t,n){return(t=r(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var a=class{constructor(e){if(i(this,`source`,void 0),i(this,`allowedOrigins`,void 0),i(this,`targetOrigin`,void 0),i(this,`debug`,void 0),i(this,`messageHandlers`,new Map),!e.allowedOrigins?.length)throw Error(`[EventCommunicator] allowedOrigins is required`);this.source=e.source,this.allowedOrigins=e.allowedOrigins,this.targetOrigin=e.targetOrigin||`*`,this.debug=e.debug||!1,e.messageHandlers&&this.registerMessageHandlers(e.messageHandlers),e.domEvents&&this.registerDOMEvents(e.domEvents),this.initMessageListener()}log(...e){this.debug&&console.log(`[EventCommunicator]`,...e)}formatEventType(t){return`${e}:${t}`}parseEventType(t){let n=`${e}:`;return t.startsWith(n)?t.slice(n.length):null}isOriginAllowed(e){return this.allowedOrigins.some(t=>t===`*`?!0:e===t||e.endsWith(t))}initMessageListener(){window.addEventListener(`message`,e=>{if(this.log(`Message received from:`,e.origin),!this.isOriginAllowed(e.origin)){console.warn(`[EventCommunicator] Wrong origin:`,e.origin);return}let t=e.data;if(!t?.type)return;let n=this.parseEventType(t.type);if(!n)return;this.log(`Parsed event type:`,n);let r=this.messageHandlers.get(n);r?r(t.payload):this.log(`No handler for:`,n)})}registerMessageHandlers(e){Object.entries(e).forEach(([e,t])=>{this.messageHandlers.set(e,t)})}registerDOMEvents(e){e.forEach(({event:e,handler:t,options:n})=>{window.addEventListener(e,t,n)})}getTargetWindow(){try{if(window.parent&&window.parent!==window)return window.parent;if(window.top&&window.top!==window)return window.top;if(window.opener)return window.opener}catch{if(window.parent&&window.parent!==window)return window.parent}return null}send(e,t){let n=this.getTargetWindow();if(!n)return;let r={type:this.formatEventType(e),source:this.source,payload:t??null,timestamp:new Date().toISOString()};n.postMessage(r,this.targetOrigin)}},o=`sg-preview-plugin`,s={ROUTES_DISCOVERED:`ROUTES_DISCOVERED`,NAVIGATE_TO:`NAVIGATE_TO`,ROUTE_CHANGED:`ROUTE_CHANGED`},c=e=>{let t=window.history.pushState;window.history.pushState=function(...n){t.apply(this,n),e()};let n=window.history.replaceState;window.history.replaceState=function(...t){n.apply(this,t),e()},window.addEventListener(`popstate`,e),window.addEventListener(`hashchange`,e)},l=(e,t,n=!1)=>{let r=e;try{let t=new URL(e,window.location.origin);new URLSearchParams(window.location.search).forEach((e,n)=>{t.searchParams.has(n)||t.searchParams.set(n,e)}),r=`${t.pathname}${t.search}${t.hash}`}catch(e){console.warn(`[route-manager] Failed to merge URL parameters:`,e)}t&&!n?(window.history.pushState(null,``,r),window.dispatchEvent(new Event(`popstate`))):window.location.assign(r)},u=(e,t)=>{let n=e?.route,r=e?.hardReload;if(!n){console.error(`[route-manager] Invalid navigation payload received:`,e);return}l(n,t,r)},d=!1;(async e=>{if(!d){d=!0;try{let t=window.__SG_PREVIEW_ROUTES,n=!!t?.isSPA,r=t?.routes||[],i=new a({source:o,allowedOrigins:e,messageHandlers:{[s.NAVIGATE_TO]:e=>u(e,n)}});i.send(s.ROUTES_DISCOVERED,r);let l=()=>{i.send(s.ROUTE_CHANGED,{route:window.location.pathname})};l(),c(l)}catch(e){console.error(`[route-manager] Failed to fetch routes or initialize communicator:`,e)}}})([`.siteground.ai`,`.sgdev.eu`])})();</script>
 </head>
 <body>
@@ -376,7 +376,7 @@
                 </div>
               </div>
             </section>
-            
+
             <section class="rounded-2xl border border-navy-800 bg-navy-900/50 p-6 sm:p-8" data-visual-edit-loc="src/components/generator/ChatPreview.tsx:16:4" data-visual-edit-component="section" data-visual-edit-editable="false">
               <h2 class="mb-5 flex items-center gap-2 font-display text-lg font-bold text-brand-200" data-visual-edit-loc="src/components/generator/ChatPreview.tsx:17:6" data-visual-edit-component="h2" data-visual-edit-editable="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle h-5 w-5 text-brand-300" data-visual-edit-loc="src/components/generator/ChatPreview.tsx:18:8" data-visual-edit-component="MessageCircle" data-visual-edit-editable="false">
@@ -416,7 +416,7 @@
               </p>
             </section>
           </div>
-          
+
           <section class="animate-fade-up rounded-2xl border border-navy-800 bg-navy-900/50 p-6 sm:p-8 lg:sticky lg:top-6 lg:self-start" data-visual-edit-loc="src/pages/Index.tsx:175:10" data-visual-edit-component="section" data-visual-edit-editable="false">
             <div class="flex flex-col items-center gap-6" data-visual-edit-loc="src/pages/Index.tsx:176:12" data-visual-edit-component="div" data-visual-edit-editable="false">
               <div class="relative flex aspect-square w-full max-w-[320px] items-center justify-center overflow-hidden rounded-2xl bg-white p-3 shadow-2xl shadow-navy-950/50" data-visual-edit-loc="src/components/generator/QrPreview.tsx:46:4" data-visual-edit-component="div" data-visual-edit-editable="false">
@@ -487,7 +487,7 @@
                       <span class="text-brand-300/40" data-visual-edit-loc="src/components/generator/LinkActions.tsx:21:27" data-visual-edit-component="span" data-visual-edit-editable="true">wa.me/...</span>
                     </div>
                   </div>
-                  
+
                   <div class="grid grid-cols-2 gap-3" data-visual-edit-loc="src/components/generator/LinkActions.tsx:25:6" data-visual-edit-component="div" data-visual-edit-editable="false">
                     <button disabled="" class="flex items-center justify-center gap-2 rounded-xl border border-brand-500/60 bg-brand-700/15 px-4 py-3 font-semibold text-brand-200 transition hover:bg-brand-700/30 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40" data-visual-edit-loc="src/components/generator/LinkActions.tsx:26:8" data-visual-edit-component="button" data-visual-edit-editable="false">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-5 w-5" data-visual-edit-loc="src/components/generator/LinkActions.tsx:31:67" data-visual-edit-component="Copy" data-visual-edit-editable="false">
@@ -507,23 +507,8 @@
                       Compartir
                     </button>
                   </div>
+
                   
-                  <form id="form-captura-lead" class="mt-4 space-y-4">
-                    <div>
-                      <label for="input-correo" class="mb-2 flex items-center gap-2 text-sm font-semibold text-brand-200">
-                        Correo electrÃ³nico para descargar
-                      </label>
-                      <input id="input-correo" type="email" required placeholder="tu@correo.com" class="w-full rounded-xl border border-navy-700 bg-navy-950/60 px-4 py-3 text-sm text-brand-200 placeholder:text-brand-300/40 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30">
-                    </div>
-                    <button id="btn-enviar-lead" type="submit" disabled="" class="flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3 font-semibold text-navy-950 shadow-lg shadow-orange-600/25 transition hover:bg-orange-400 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40" data-visual-edit-loc="src/components/generator/LinkActions.tsx:44:6" data-visual-edit-component="button" data-visual-edit-editable="true">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download h-5 w-5" data-visual-edit-loc="src/components/generator/LinkActions.tsx:49:8" data-visual-edit-component="Download" data-visual-edit-editable="false">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" x2="12" y1="15" y2="3"></line>
-                      </svg>
-                      Descargar QR (PNG)
-                    </button>
-                  </form>
                 </div>
               </div>
             </section>
@@ -536,61 +521,12 @@
           <p class="text-center text-sm text-brand-300/50" data-visual-edit-loc="src/pages/Index.tsx:215:10" data-visual-edit-component="p" data-visual-edit-editable="true">
             QR Directo Â· Generador de enlaces y cÃ³digos QR para WhatsApp
           </p>
-          <a aria-label="Panel de administraciÃ³n" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-300/40 transition hover:text-orange-400" data-visual-edit-loc="src/pages/Index.tsx:218:10" data-visual-edit-component="Link" data-visual-edit-editable="true" href="/admin">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-3.5 w-3.5" data-visual-edit-loc="src/pages/Index.tsx:223:12" data-visual-edit-component="Lock" data-visual-edit-editable="false">
-              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
-            AdministraciÃ³n
-          </a>
+
         </div>
       </footer>
     </div>
     <div class="fixed inset-x-0 top-5 z-50 flex flex-col items-center gap-2 px-4" data-visual-edit-loc="src/components/ui/Toast.tsx:36:6" data-visual-edit-component="div" data-visual-edit-editable="false"></div>
   </div>
-
-  <script>
-    function registrarLead(event) {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('input-correo');
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      if (!email) return;
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-      })
-      .then(() => {
-        console.log('Lead registrado con Ã©xito.');
-        // Opcional: Agregar lÃ³gica para permitir la descarga tras el registro
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnEnviar = document.getElementById('btn-enviar-lead');
-      if (btnEnviar) {
-        const leadForm = btnEnviar.closest('form');
-        if (leadForm) {
-          leadForm.addEventListener('submit', registrarLead);
-        } else {
-          btnEnviar.addEventListener('click', registrarLead);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
 
