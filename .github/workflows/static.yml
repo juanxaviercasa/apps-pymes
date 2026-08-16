@@ -1,9 +1,9 @@
-# Publicación del portal estático desde la rama ordered-cleanup.
+# Publicación del portal estático desde la rama principal main.
 name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["ordered-cleanup"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
