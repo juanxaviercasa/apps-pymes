@@ -59,3 +59,11 @@ Se conservaron el cálculo de cuota, tabla de amortización, abonos extraordinar
 Los dos bundles pasan `node --check` y la comprobación no encuentra referencias a `LeadModal`, `AdminPanel`, `Panel de administración`, `script.google.com`, `input-correo` ni `registrarLead`.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 07 — Calculadora de Sobrecostos Laborales
+
+Se conservaron la gestión de empleados, cálculo de costo empleador, prestaciones, proyecciones mensual/anual, gráficos comparativos, almacenamiento local y generación de PDF. La descarga dejó de abrir `LeadModal`: ahora invoca directamente la generación local del reporte. Se retiró la definición completa del modal, sus validaciones de nombre/correo y el webhook de lead; la cabecera PDF ya no incluye correo del destinatario.
+
+Los bundles pasan `node --check` y no quedan referencias a `LeadModal`, `input-correo`, `registrarLead`, `WEBHOOK_URL`, `script.google.com`, `Preparado para`, `n.correo` ni el handler que abría el modal.
+
+Estado: **depurada y validada estructuralmente**.
