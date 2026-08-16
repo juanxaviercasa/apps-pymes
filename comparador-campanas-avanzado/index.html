@@ -415,92 +415,10 @@
               AÃºn no has agregado campaÃ±as. Complete el formulario para comenzar a comparar.
             </div>
           </section>
-
-          <section data-visual-edit-loc="src/pages/Index.tsx:183:10" data-visual-edit-component="section" data-visual-edit-editable="false">
-            <div class="mb-4 flex flex-wrap items-center justify-between gap-3" data-visual-edit-loc="src/pages/Index.tsx:184:12" data-visual-edit-component="div" data-visual-edit-editable="false">
-              <h2 class="text-lg font-semibold text-ink" data-visual-edit-loc="src/pages/Index.tsx:185:14" data-visual-edit-component="h2" data-visual-edit-editable="true">
-                Presupuesto vs. Ingresos
-              </h2>
-            </div>
-            <div class="relative" data-visual-edit-loc="src/components/EmailGate.tsx:27:4" data-visual-edit-component="div" data-visual-edit-editable="false">
-              <div class="pointer-events-none select-none blur-md brightness-90" aria-hidden="true" data-visual-edit-loc="src/components/EmailGate.tsx:28:6" data-visual-edit-component="div" data-visual-edit-editable="false">
-                <div class="rounded-2xl bg-surface p-6 ring-1 ring-line sm:p-8" data-visual-edit-loc="src/pages/Index.tsx:202:14" data-visual-edit-component="div" data-visual-edit-editable="false">
-                  <p class="py-16 text-center text-muted" data-visual-edit-loc="src/pages/Index.tsx:206:18" data-visual-edit-component="p" data-visual-edit-editable="true">
-                    Agrega campaÃ±as para visualizar el grÃ¡fico comparativo.
-                  </p>
-                </div>
-              </div>
-              <div class="absolute inset-0 flex items-center justify-center p-4" data-visual-edit-loc="src/components/EmailGate.tsx:36:8" data-visual-edit-component="div" data-visual-edit-editable="false">
-                <div class="w-full max-w-md rounded-2xl bg-surface/95 p-8 text-center ring-1 ring-line" data-visual-edit-loc="src/components/EmailGate.tsx:37:10" data-visual-edit-component="div" data-visual-edit-editable="false">
-                  <span class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-panel text-accent" data-visual-edit-loc="src/components/EmailGate.tsx:38:12" data-visual-edit-component="span" data-visual-edit-editable="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock" data-visual-edit-loc="src/components/EmailGate.tsx:39:14" data-visual-edit-component="Lock" data-visual-edit-editable="false">
-                      <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                  </span>
-                  <h3 class="text-lg font-bold text-ink" data-visual-edit-loc="src/components/EmailGate.tsx:41:12" data-visual-edit-component="h3" data-visual-edit-editable="true">
-                    Funciones avanzadas bloqueadas
-                  </h3>
-                  <p class="mt-2 text-sm text-muted" data-visual-edit-loc="src/components/EmailGate.tsx:42:12" data-visual-edit-component="p" data-visual-edit-editable="true">
-                    Ingresa tu correo para desbloquear el grÃ¡fico comparativo y la exportaciÃ³n a CSV.
-                  </p>
-                  
-                  <form class="mt-6 space-y-3" data-visual-edit-loc="src/components/EmailGate.tsx:46:12" data-visual-edit-component="form" data-visual-edit-editable="false">
-                    <input id="input-correo" required="" placeholder="tu@correo.com" class="w-full rounded-xl bg-panel px-4 py-3 text-center text-ink placeholder:text-muted/60 outline-none focus:ring-2 focus:ring-accent" data-visual-edit-loc="src/components/EmailGate.tsx:47:14" data-visual-edit-component="input" data-visual-edit-editable="false" type="email" value="">
-                    <button id="btn-enviar-lead" type="submit" class="w-full rounded-xl bg-accent py-3.5 font-bold text-white transition-colors hover:bg-accent-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-visual-edit-loc="src/components/EmailGate.tsx:61:14" data-visual-edit-component="button" data-visual-edit-editable="true">
-                      Desbloquear funciones
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+</div>
       </div>
     </main>
   </div>
-  
-  <script>
-    function registrarLead(event) {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('input-correo');
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      if (!email) return;
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors', // Fundamental para peticiones a Apps Script desde el frontend
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-      })
-      .then(() => {
-        console.log('Lead registrado con Ã©xito.');
-        // Puedes agregar lÃ³gica aquÃ­ para ocultar el formulario o mostrar un mensaje
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    // Inicializar el evento asegurando que el DOM ha cargado
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnEnviar = document.getElementById('btn-enviar-lead');
-      if (btnEnviar) {
-        const leadForm = btnEnviar.closest('form');
-        if (leadForm) {
-          leadForm.addEventListener('submit', registrarLead);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
 

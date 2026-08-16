@@ -67,3 +67,11 @@ Se conservaron la gestión de empleados, cálculo de costo empleador, prestacion
 Los bundles pasan `node --check` y no quedan referencias a `LeadModal`, `input-correo`, `registrarLead`, `WEBHOOK_URL`, `script.google.com`, `Preparado para`, `n.correo` ni el handler que abría el modal.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 08 — Comparador Avanzado de Campañas
+
+Se conservaron el alta y edición de campañas, simulador de presupuesto, tabla comparativa, filtros por plataforma, escenarios guardados en localStorage, gráfico de presupuesto versus ingresos, reporte PDF y exportación CSV. Se retiró la sección HTML de `EmailGate`, el script de registro por Google Apps Script y la lógica de correo persistente. El wrapper de acceso quedó convertido en un passthrough para que sus hijos se rendericen siempre; el estado principal inicia habilitado.
+
+Los dos bundles pasan `node --check` y no quedan referencias a `EmailGate`, `input-correo`, `btn-enviar-lead`, `registrarLead`, `TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI`, `script.google.com`, `leadEmail`, `unlocked` ni el texto de bloqueo.
+
+Estado: **depurada y validada estructuralmente**.
