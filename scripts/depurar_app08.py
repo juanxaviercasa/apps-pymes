@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/comparador-campanas-avanzado.html', ROOT / 'html/comparador-campanas-avanzado.html']:
+for path in [ROOT / 'comparador-campanas-avanzado.html', ROOT / 'comparador-campanas-avanzado.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text, count = re.subn(r'\s*<section data-visual-edit-loc="src/pages/Index.tsx:183:10".*?</section>\s*', '\n', text, count=1, flags=re.S)
     text, count = re.subn(r'\s*<script>\s*function registrarLead.*?</script>\s*', '\n', text, count=1, flags=re.S)

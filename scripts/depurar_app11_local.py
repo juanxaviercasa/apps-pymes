@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/creador-facturas-proforma.html', ROOT / 'html/creador-facturas-proforma.html']:
+for path in [ROOT / 'creador-facturas-proforma.html', ROOT / 'creador-facturas-proforma.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'\s*<!-- SCRIPT DE CAPTURA DE LEADS -->\s*<script>.*?</script>', '', text, count=1, flags=re.S | re.I)
     text = re.sub(r'<script>\s*function registrarLead\(event\).*?</script>', '', text, count=1, flags=re.S)

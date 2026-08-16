@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/calculadora-descuentos-promociones.html', ROOT / 'html/calculadora-descuentos-promociones.html']:
+for path in [ROOT / 'calculadora-descuentos-promociones.html', ROOT / 'calculadora-descuentos-promociones.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     original = text
     text = re.sub(r'\s*<!-- SecciÃ³n Captura de Lead -->.*?</section>\s*', '\n', text, count=1, flags=re.S)

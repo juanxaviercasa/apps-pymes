@@ -4,7 +4,7 @@ import re
 ROOT = Path('/home/ubuntu/apps-pymes')
 
 html_paths = [
-    ROOT / 'html/analizador-titulares.html',
+    ROOT / 'analizador-titulares.html',
 ]
 for path in html_paths:
     text = path.read_text(encoding='utf-8', errors='replace')

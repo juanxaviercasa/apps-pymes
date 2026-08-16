@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/consola-campanas.html', ROOT / 'html/consola-campanas.html']:
+for path in [ROOT / 'consola-campanas.html', ROOT / 'consola-campanas.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     marker = '<!-- SecciÃ³n de Captura de Leads Integrada -->'
     if marker not in text:

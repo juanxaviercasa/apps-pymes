@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/calculadora-flete-envio-local.html', ROOT / 'html/calculadora-flete-envio-local.html']:
+for path in [ROOT / 'calculadora-flete-envio-local.html', ROOT / 'calculadora-flete-envio-local.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     original = text
     start_marker = '<!-- Lead Capture -->'

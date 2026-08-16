@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/calculadora-precios-venta-igv.html', ROOT / 'html/calculadora-precios-venta-igv.html']:
+for path in [ROOT / 'calculadora-precios-venta-igv.html', ROOT / 'calculadora-precios-venta-igv.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     start_marker = '<!-- Formulario de Captura de Leads (Modificado) -->'
     end_marker = '\n            </section>\n          </div>\n        </div>\n        \n        <!-- Footer -->'

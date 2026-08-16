@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/firma-correo-html.html', ROOT / 'html/firma-correo-html.html']:
+for path in [ROOT / 'firma-correo-html.html', ROOT / 'firma-correo-html.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<a[^>]*href="/admin"[^>]*>.*?</a>', '', text, count=1, flags=re.S)
     text = re.sub(r'\s*<script>\s*function registrarLead\(event\).*?</script>\s*', '\n', text, count=1, flags=re.S)

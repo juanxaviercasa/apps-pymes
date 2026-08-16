@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/generador-contrasenas-pymes.html', ROOT / 'html/generador-contrasenas-pymes.html']:
+for path in [ROOT / 'generador-contrasenas-pymes.html', ROOT / 'generador-contrasenas-pymes.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<form[^>]*(?:id|name)=["\'][^"\']*(?:lead|email)["\'][^>]*>.*?</form>', '', text, count=1, flags=re.S | re.I)
     # El modal heredado no está dentro de un formulario; quitarlo por su contenedor balanceado.

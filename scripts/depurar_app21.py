@@ -4,7 +4,7 @@ import re
 ROOT = Path('/home/ubuntu/apps-pymes')
 
 html_files = [
-    ROOT / 'html/organizador-matriz-contenidos.html',
+    ROOT / 'organizador-matriz-contenidos.html',
 ]
 for path in html_files:
     text = path.read_text(encoding='utf-8', errors='replace')

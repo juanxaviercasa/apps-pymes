@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/generador-contratos-servicios.html', ROOT / 'html/generador-contratos-servicios.html']:
+for path in [ROOT / 'generador-contratos-servicios.html', ROOT / 'generador-contratos-servicios.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<form[^>]*id=["\']form-captura-lead["\'][^>]*>.*?</form>', '', text, count=1, flags=re.S | re.I)
     text = re.sub(r'\s*<script>\s*function registrarLead\(event\).*?</script>\s*', '\n', text, count=1, flags=re.S)

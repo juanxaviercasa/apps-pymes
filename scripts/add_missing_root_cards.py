@@ -23,7 +23,7 @@ cards = '''
               <span class="mb-2 text-xs font-semibold uppercase tracking-widest text-brand">Seguridad</span>
               <h3 class="font-display text-lg font-bold leading-snug text-fg">Generador de Contraseñas para Pymes</h3>
               <p class="mt-2 flex-1 text-sm leading-relaxed text-fg-muted">Crea contraseñas seguras y personalizadas de forma local, rápida y gratuita.</p>
-              <a href="./html/generador-contrasenas-pymes.html" class="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cta-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cta">Abrir Herramienta<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+              <a href="./generador-contrasenas-pymes.html" class="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cta-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cta">Abrir Herramienta<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
             </article>
           </div>
 
@@ -41,7 +41,7 @@ cards = '''
               <span class="mb-2 text-xs font-semibold uppercase tracking-widest text-brand">Legal y Administración</span>
               <h3 class="font-display text-lg font-bold leading-snug text-fg">Generador de Contratos de Servicios</h3>
               <p class="mt-2 flex-1 text-sm leading-relaxed text-fg-muted">Redacta contratos de servicios editables con una plantilla local para tu negocio.</p>
-              <a href="./html/generador-contratos-servicios.html" class="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cta-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cta">Abrir Herramienta<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+              <a href="./generador-contratos-servicios.html" class="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cta-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cta">Abrir Herramienta<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
             </article>
           </div>'''
 INDEX.write_text(text.replace(marker, cards + marker), encoding='utf-8')

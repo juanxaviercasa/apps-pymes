@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'html/auditor-seo-basico.html', ROOT / 'html/auditor-seo-basico.html']:
+for path in [ROOT / 'auditor-seo-basico.html', ROOT / 'auditor-seo-basico.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     original = text
     text = re.sub(r'\s*<!-- Upsell / Lead Capture Section -->.*?</div>\s*\n\s*</main>', '\n\n      </main>', text, count=1, flags=re.S)

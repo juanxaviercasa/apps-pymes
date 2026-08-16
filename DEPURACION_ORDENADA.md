@@ -196,11 +196,7 @@ Estado final: **22 de 22 aplicaciones depuradas, liberadas y validadas**.
 
 
 ## Reestructuración de publicación estática
-
-La publicación se reorganizó para eliminar la ambigüedad de rutas de GitHub Pages. El índice principal ahora está en `index.html` en la raíz del repositorio. Las 22 páginas de aplicaciones están juntas en `html/`, las hojas de estilo en `css/`, los bundles JavaScript en `js/` y los recursos compartidos en `assets/`.
-
-Cada aplicación referencia sus recursos mediante rutas relativas desde `html/` (`../css/`, `../js/` y `../assets/`). El índice raíz enlaza explícitamente a `./html/<aplicacion>.html`, y el workflow de GitHub Pages publica la raíz del repositorio desde `main`.
-
-La estructura fue comprobada con `scripts/validar_estructura_publica.py` y `scripts/validacion_global.py`: `ROOT_INDEX=1`, `HTML_APPS=22`, `CSS_FILES=23`, `JS_APP_BUNDLES=22`, `STRUCTURE_ERRORS=0`, `SYNTAX_FAILURES=0`, `BUNDLE_RESIDUE_TOTAL=0` y `HTML_RESIDUE_TOTAL=0`. Además, la verificación HTTP local confirmó respuesta 200 para la portada y las 22 aplicaciones.
-
-Los scripts reproducibles de depuración fueron actualizados para trabajar sobre `html/` y `js/`, sin depender de las carpetas individuales heredadas.
+La publicación se reorganizó para eliminar la ambigüedad de rutas de GitHub Pages. El índice principal está en `index.html` en la raíz del repositorio y las 22 páginas de aplicaciones también están directamente en la raíz, con URLs como `./auditor-seo-basico.html`. Las hojas de estilo están agrupadas en `css/`, los bundles JavaScript en `js/` y los recursos compartidos en `assets/`.
+Cada aplicación referencia sus recursos mediante rutas relativas desde la raíz (`./css/`, `./js/` y `./assets/`). El índice raíz enlaza directamente a `./<aplicacion>.html`, y el workflow de GitHub Pages publica la raíz del repositorio desde `main`.
+La estructura fue comprobada con `scripts/validar_estructura_publica.py` y `scripts/validacion_global.py`: `ROOT_INDEX=1`, `HTML_APPS_ROOT=22`, `CSS_FILES=23`, `JS_APP_BUNDLES=22`, `STRUCTURE_ERRORS=0`, `SYNTAX_FAILURES=0`, `BUNDLE_RESIDUE_TOTAL=0` y `HTML_RESIDUE_TOTAL=0`. Además, la verificación HTTP local confirmó respuesta 200 para la portada y las 22 aplicaciones.
+Los scripts reproducibles de depuración fueron actualizados para trabajar con los HTML de la raíz y los bundles de `js/`, sin depender de las carpetas individuales heredadas.

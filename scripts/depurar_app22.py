@@ -4,7 +4,7 @@ import re
 ROOT = Path('/home/ubuntu/apps-pymes')
 
 html_files = [
-    ROOT / 'html/simulador-tco-fisico-nube.html',
+    ROOT / 'simulador-tco-fisico-nube.html',
 ]
 for path in html_files:
     text = path.read_text(encoding='utf-8', errors='replace')
