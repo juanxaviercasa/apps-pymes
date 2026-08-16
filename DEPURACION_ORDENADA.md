@@ -99,3 +99,7 @@ Se conservaron el campo de correo del cliente como dato operativo, la validació
 Los dos bundles pasan `node --check`; no quedan referencias al backend de leads, captcha, `coderick.net` ni URLs de captación, mientras siguen presentes `mailto:`, `Descargar PDF` y `Enviar al Cliente`.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 16 — Generador de Cotizaciones
+La auditoría estructural confirmó que esta aplicación no contiene `LeadModal`, `EmailGate`, formularios de captación, endpoints externos de leads ni rutas administrativas. El correo del cliente se conserva porque alimenta el enlace operativo `mailto:` para enviar la cotización, junto con la generación, descarga, historial y redescarga del documento. Ambos bundles pasan `node --check`; no fue necesario modificar el código de la aplicación.
+Estado: **auditada y limpia**.
