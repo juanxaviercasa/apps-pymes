@@ -2,7 +2,7 @@
 
 ## Introducción
 
-NubeParaPymes reúne **22 herramientas gratuitas y locales** para apoyar tareas de marketing, ventas, operaciones, finanzas, documentación y planificación de pequeñas empresas. Cada aplicación se ejecuta en el navegador y conserva sus datos localmente cuando dispone de historial o almacenamiento persistente. No es necesario crear una cuenta, entregar un correo electrónico ni contratar un plan para utilizar las funciones publicadas.
+NubeParaPymes reúne **26 herramientas gratuitas y locales** para apoyar tareas de marketing, ventas, operaciones, finanzas, documentación y planificación de pequeñas empresas. Cada aplicación se ejecuta en el navegador y conserva sus datos localmente cuando dispone de historial o almacenamiento persistente. No es necesario crear una cuenta, entregar un correo electrónico ni contratar un plan para utilizar las funciones publicadas.
 
 La portada del proyecto está disponible en [NubeParaPymes](./index.html). Las aplicaciones se abren mediante archivos HTML independientes en la raíz, por lo que las rutas tienen el formato `./nombre-de-la-app.html`. La guía de despliegue técnico se encuentra en [GUIA_DESPLIEGUE_HOSTING.md](./GUIA_DESPLIEGUE_HOSTING.md).
 
@@ -450,6 +450,47 @@ Compara el costo total de propiedad de una infraestructura física con una alter
 ### Recomendaciones
 
 Incluye costos que no estén representados automáticamente, como migración, soporte, seguridad, respaldo, contratación, disponibilidad y salida del proveedor. Compara ofertas reales antes de tomar una decisión de compra o migración.
+
+
+## 23. CRM y Pipeline Comercial
+
+### Para qué sirve
+
+Centraliza contactos, oportunidades, etapas, valor estimado y próxima acción para que ninguna conversación comercial quede sin seguimiento.
+
+### Cómo utilizarla
+
+Registra primero empresas y personas. Después crea oportunidades, asigna una etapa, indica el valor y fija una próxima acción. Actualiza el estado en el pipeline y revisa las oportunidades vencidas.
+
+## 24. Flujo de Caja y Cobranzas
+
+### Para qué sirve
+
+Permite registrar ingresos, egresos, cuentas pendientes y fechas de vencimiento para observar el saldo operativo y anticipar faltantes.
+
+### Cómo utilizarla
+
+Añade cada movimiento con tipo, monto, categoría, cliente o proveedor y estado. Marca como pagado o cobrado cuando corresponda y usa el resumen por categorías para revisar la situación.
+
+## 25. Inventario, Proveedores y Compras
+
+### Para qué sirve
+
+Controla productos, costos, precios, existencias, stock mínimo, proveedores y compras de reposición.
+
+### Cómo utilizarla
+
+Crea los productos con SKU y stock mínimo, registra proveedores y aplica cada compra al inventario. Las salidas manuales reducen existencias y las alertas muestran productos que requieren reposición.
+
+## 26. Tareas y Proyectos Operativos
+
+### Para qué sirve
+
+Convierte compromisos comerciales en proyectos, tareas, responsables, prioridades y fechas de entrega.
+
+### Cómo utilizarla
+
+Crea un proyecto, añade tareas y actualiza su estado desde el tablero. Revisa las tareas vencidas y las completadas para controlar la ejecución.
 
 ## Flujo recomendado para trabajar con varias aplicaciones
 

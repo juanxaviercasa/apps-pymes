@@ -5,18 +5,18 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 html_paths = sorted(path for path in ROOT.glob('*.html') if path.name not in {'index.html', 'guia-uso-22-apps.html'})
 js_files = sorted((ROOT / 'js').glob('*.js'))
-app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js'}]
+app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js', 'op-runtime.js'}]
 css_files = sorted((ROOT / 'css').glob('*.css'))
 errors = []
 
 if not (ROOT / 'index.html').is_file():
     errors.append('Falta index.html en la raíz.')
-if len(html_paths) != 22:
-    errors.append(f'Se esperaban 22 HTML en la raíz y hay {len(html_paths)}.')
-if len(css_files) != 25:
-    errors.append(f'Se esperaban 25 CSS incluyendo portal, ayuda y respaldo común y hay {len(css_files)}.')
-if len(app_js_files) != 22:
-    errors.append(f'Se esperaban 22 JS de aplicaciones y hay {len(app_js_files)}.')
+if len(html_paths) != 26:
+    errors.append(f'Se esperaban 26 HTML en la raíz y hay {len(html_paths)}.')
+if len(css_files) != 26:
+    errors.append(f'Se esperaban 26 CSS incluyendo portal, ayuda, respaldo y operaciones común y hay {len(css_files)}.')
+if len(app_js_files) != 26:
+    errors.append(f'Se esperaban 26 JS de aplicaciones y hay {len(app_js_files)}.')
 
 for path in js_files:
     result = subprocess.run(['node', '--check', str(path)], capture_output=True, text=True)
@@ -28,8 +28,8 @@ for ref in ('./css/index.css', './js/index.js', './assets/favicon.png'):
     if ref not in root_text:
         errors.append(f'El índice no referencia {ref}.')
 root_links = {ref for ref in re.findall(r'href="(\./[^"?]+\.html)"', root_text) if ref != './guia-uso-22-apps.html'}
-if len(root_links) != 22:
-    errors.append(f'El índice raíz debe contener 22 enlaces de aplicaciones y contiene {len(root_links)}.')
+if len(root_links) != 26:
+    errors.append(f'El índice raíz debe contener 26 enlaces de aplicaciones y contiene {len(root_links)}.')
 for path in html_paths:
     if f'href="./{path.name}"' not in root_text:
         errors.append(f'El índice no contiene el enlace visible a {path.name}.')
@@ -40,8 +40,9 @@ for path in html_paths:
     title = re.search(r'<title>(.*?)</title>', text, re.S)
     if not title or any(token in title.group(1) for token in ('Ã', 'Â', 'â', 'ð', '�')):
         errors.append(f'{path.name} tiene un título ausente o con codificación dañada.')
-    expected = [f'./css/{name}.css', f'./js/{name}.js', './css/ayuda-apps.css', './js/ayuda-apps.js', './assets/favicon.png']
-    if name in {'generador-cotizaciones', 'creador-facturas-proforma', 'comparador-campanas-avanzado', 'consola-campanas', 'organizador-matriz-contenidos'}:
+    operational = {'crm-pymes', 'flujo-caja-pymes', 'inventario-compras-pymes', 'tareas-proyectos-pymes'}
+    expected = [('./css/operaciones-pyme.css' if name in operational else f'./css/{name}.css'), f'./js/{name}.js', './css/ayuda-apps.css', './js/ayuda-apps.js', './assets/favicon.png']
+    if name in {'generador-cotizaciones', 'creador-facturas-proforma', 'comparador-campanas-avanzado', 'consola-campanas', 'organizador-matriz-contenidos'} or name in operational:
         expected.extend(['./css/respaldo-local.css', './js/respaldo-local.js'])
     for ref in expected:
         if ref not in text:
@@ -56,6 +57,8 @@ for path in html_paths:
     bundle_text = bundle_path.read_text(encoding='utf-8', errors='replace') if bundle_path.is_file() else ''
     if name == 'auditor-seo-basico' and 'var ki={"title-len"' not in bundle_text:
         errors.append('auditor-seo-basico.js no contiene la tabla legítima de mensajes ki.')
+    if name in operational:
+        continue
     route_prefix = r'\.jsx\)\([^,]+,\{path:'
     route_component = r'element:\(0,[^)]*\.jsx\)\(([^,]+),'
     root_match = re.search(route_prefix + r'(?:"/"|\'/\'|`/`),' + route_component, bundle_text)
