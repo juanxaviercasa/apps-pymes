@@ -75,3 +75,11 @@ Se conservaron el alta y edición de campañas, simulador de presupuesto, tabla 
 Los dos bundles pasan `node --check` y no quedan referencias a `EmailGate`, `input-correo`, `btn-enviar-lead`, `registrarLead`, `TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI`, `script.google.com`, `leadEmail`, `unlocked` ni el texto de bloqueo.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 09 — Consola de Campañas
+
+Se conservaron el constructor UTM, fuentes y medios, simulador ROI, heatmap, enlaces simulados, panel local de campañas, carpetas y almacenamiento local del navegador. Se retiraron la sección HTML de captura de correo, el script de Google Apps Script, `LeadModal`, el captcha/contacto basado en `sgpowcaptcha` y sus endpoints `/sgcaptcha/*`. El montaje de confirmación quedó eliminado sin alterar los flujos locales de crear, borrar, quitar enlaces o sincronizar la interfaz.
+
+Los dos bundles pasan `node --check` y no quedan referencias a correo, captación, LeadModal, captcha, endpoints externos ni formularios de suscripción.
+
+Estado: **depurada y validada estructuralmente**.
