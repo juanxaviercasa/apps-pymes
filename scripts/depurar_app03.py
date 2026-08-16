@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/calculadora-descuentos-promociones.html', ROOT / 'calculadora-descuentos-promociones/index.html']:
+for path in [ROOT / 'html/calculadora-descuentos-promociones.html', ROOT / 'html/calculadora-descuentos-promociones.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     original = text
     text = re.sub(r'\s*<!-- SecciÃ³n Captura de Lead -->.*?</section>\s*', '\n', text, count=1, flags=re.S)
@@ -13,7 +13,7 @@ for path in [ROOT / 'apps/calculadora-descuentos-promociones.html', ROOT / 'calc
         path.write_text(text, encoding='utf-8')
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/calculadora-descuentos-promociones.js', ROOT / 'calculadora-descuentos-promociones/assets/index.js']:
+for path in [ROOT / 'js/calculadora-descuentos-promociones.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
 
     home_start = ',(0,N.jsxs)(`section`,{className:`rounded-panel border border-navy-800 bg-navy-900/40 p-5 sm:p-7`,"data-visual-edit-loc":`src/pages/Home.tsx:184:8`'

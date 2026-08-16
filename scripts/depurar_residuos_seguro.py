@@ -12,26 +12,26 @@ def replace_all(rel, old, new):
     return True
 
 # Instancias sin consumidores públicos: se eliminan solo las declaraciones.
-for rel in ('apps/js/generador-codigos-qr.js', 'generador-codigos-qr/assets/index.js'):
+for rel in ('js/generador-codigos-qr.js', 'generador-codigos-qr/assets/index.js'):
     p = ROOT / rel
     s = p.read_text(encoding='utf-8', errors='replace')
     s = re.sub(r',_i=new gi\(`https://[^`]+`\)', '', s, count=1)
     p.write_text(s, encoding='utf-8')
 
-for rel in ('apps/js/generador-paletas-corporativas.js', 'generador-paletas-corporativas/assets/index.js'):
+for rel in ('js/generador-paletas-corporativas.js', 'generador-paletas-corporativas/assets/index.js'):
     p = ROOT / rel
     s = p.read_text(encoding='utf-8', errors='replace')
     s = re.sub(r',Xr=new Yr\(`https://[^`]+`\)', '', s, count=1)
     p.write_text(s, encoding='utf-8')
 
-for rel in ('apps/js/generador-politicas-devolucion.js', 'generador-politicas-devolucion/assets/index.js'):
+for rel in ('js/generador-politicas-devolucion.js', 'generador-politicas-devolucion/assets/index.js'):
     p = ROOT / rel
     s = p.read_text(encoding='utf-8', errors='replace')
     s = re.sub(r',Si=new xi\(`https://[^`]+`\),Ci=/\^\[\^\\s@\]\+@\[\^\\s@\]\+\\\.[^;]+;', ';', s, count=1)
     p.write_text(s, encoding='utf-8')
 
 # App 11: la proforma ya descarga localmente; quitar bloque de persistencia de leads.
-for rel in ('apps/js/creador-facturas-proforma.js', 'creador-facturas-proforma/assets/index.js'):
+for rel in ('js/creador-facturas-proforma.js', 'creador-facturas-proforma/assets/index.js'):
     p = ROOT / rel
     s = p.read_text(encoding='utf-8', errors='replace')
     start = s.find(',sp=new op(`https://')
@@ -41,7 +41,7 @@ for rel in ('apps/js/creador-facturas-proforma.js', 'creador-facturas-proforma/a
     p.write_text(s, encoding='utf-8')
 
 # App 20: reemplazar tracking/moderacion remotos por no-ops locales.
-for rel in ('apps/js/guiones-manejo-objeciones.js', 'guiones-manejo-objeciones/assets/index.js'):
+for rel in ('js/guiones-manejo-objeciones.js', 'guiones-manejo-objeciones/assets/index.js'):
     p = ROOT / rel
     s = p.read_text(encoding='utf-8', errors='replace')
     start = s.find(',si=new oi(`https://')
@@ -55,10 +55,10 @@ print('Limpieza segura aplicada.')
 
 # Neutralizar marcadores heredados de módulos ya desmontados, sin tocar la lógica pública.
 for rel in (
-    'apps/js/analizador-titulares.js', 'analizador-titulares/assets/index.js',
-    'apps/js/auditor-seo-basico.js', 'auditor-seo-basico/assets/index.js',
-    'apps/js/generador-contrasenas-pymes.js', 'generador-contrasenas-pymes/assets/index.js',
-    'apps/js/guiones-manejo-objeciones.js', 'guiones-manejo-objeciones/assets/index.js',
+    'js/analizador-titulares.js', 'analizador-titulares/assets/index.js',
+    'js/auditor-seo-basico.js', 'auditor-seo-basico/assets/index.js',
+    'js/generador-contrasenas-pymes.js', 'generador-contrasenas-pymes/assets/index.js',
+    'js/guiones-manejo-objeciones.js', 'guiones-manejo-objeciones/assets/index.js',
 ):
     p = ROOT / rel
     s = p.read_text(encoding='utf-8', errors='replace')
@@ -66,8 +66,8 @@ for rel in (
     p.write_text(s, encoding='utf-8')
 
 for rel in (
-    'apps/js/calculadora-descuentos-promociones.js', 'calculadora-descuentos-promociones/assets/index.js',
-    'apps/js/calculadora-prestamos-amortizaciones.js', 'calculadora-prestamos-amortizaciones/assets/index.js',
+    'js/calculadora-descuentos-promociones.js', 'calculadora-descuentos-promociones/assets/index.js',
+    'js/calculadora-prestamos-amortizaciones.js', 'calculadora-prestamos-amortizaciones/assets/index.js',
 ):
     p = ROOT / rel
     s = p.read_text(encoding='utf-8', errors='replace')

@@ -3,12 +3,12 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/calculadora-prestamos-amortizaciones.html', ROOT / 'calculadora-prestamos-amortizaciones/index.html']:
+for path in [ROOT / 'html/calculadora-prestamos-amortizaciones.html', ROOT / 'html/calculadora-prestamos-amortizaciones.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text, count = re.subn(r'\s*<footer class="no-print mt-14 flex justify-center border-t border-line/50 pt-6">.*?</footer>\s*', '\n', text, count=1, flags=re.S)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/calculadora-prestamos-amortizaciones.js', ROOT / 'calculadora-prestamos-amortizaciones/assets/index.js']:
+for path in [ROOT / 'js/calculadora-prestamos-amortizaciones.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     footer_start = ',(0,J.jsx)(`__DISABLED_FOOTER__`,{className:`no-print mt-14 flex justify-center border-t border-line/50 pt-6`'
     lead_start = ',(0,J.jsx)(ri,{open:g,onClose:()=>v(!1)'

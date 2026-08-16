@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/firma-correo-html.html', ROOT / 'firma-correo-html/index.html']:
+for path in [ROOT / 'html/firma-correo-html.html', ROOT / 'html/firma-correo-html.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<a[^>]*href="/admin"[^>]*>.*?</a>', '', text, count=1, flags=re.S)
     text = re.sub(r'\s*<script>\s*function registrarLead\(event\).*?</script>\s*', '\n', text, count=1, flags=re.S)
@@ -13,7 +13,7 @@ for path in [ROOT / 'apps/firma-correo-html.html', ROOT / 'firma-correo-html/ind
     text = re.sub(r'\n[ \t]+\n', '\n\n', text)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/firma-correo-html.js', ROOT / 'firma-correo-html/assets/index.js']:
+for path in [ROOT / 'js/firma-correo-html.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     # Download/copy are local actions; do not route them through a lead modal.
     text = text.replace('ae=e=>i?ie(e):s(e)', 'ae=e=>ie(e)', 1)

@@ -4,8 +4,7 @@ import re
 ROOT = Path('/home/ubuntu/apps-pymes')
 
 html_paths = [
-    ROOT / 'apps/analizador-titulares.html',
-    ROOT / 'analizador-titulares/index.html',
+    ROOT / 'html/analizador-titulares.html',
 ]
 for path in html_paths:
     text = path.read_text(encoding='utf-8', errors='replace')
@@ -23,7 +22,7 @@ for path in html_paths:
     path.write_text(text, encoding='utf-8')
 
 mount = '(0,$.jsx)(`section`,{className:`mt-8`,"data-visual-edit-loc":`src/pages/Index.tsx:207:8`,"data-visual-edit-component":`section`,"data-visual-edit-editable":`false`,children:(0,$.jsx)(br,{headline:e===`single`?u.text:``,"data-visual-edit-loc":`src/pages/Index.tsx:208:10`,"data-visual-edit-component":`LeadCapture`,"data-visual-edit-editable":`false`})})'
-for path in [ROOT / 'apps/js/analizador-titulares.js', ROOT / 'analizador-titulares/assets/index.js']:
+for path in [ROOT / 'js/analizador-titulares.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     if text.count(mount) == 1:
         text = text.replace(mount, '')

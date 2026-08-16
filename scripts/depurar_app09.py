@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/consola-campanas.html', ROOT / 'consola-campanas/index.html']:
+for path in [ROOT / 'html/consola-campanas.html', ROOT / 'html/consola-campanas.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     marker = '<!-- SecciÃ³n de Captura de Leads Integrada -->'
     if marker not in text:
@@ -15,7 +15,7 @@ for path in [ROOT / 'apps/consola-campanas.html', ROOT / 'consola-campanas/index
     text = re.sub(r'\s*<script>\s*function registrarLead.*?</script>\s*', '\n', text, count=1, flags=re.S)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/consola-campanas.js', ROOT / 'consola-campanas/assets/index.js']:
+for path in [ROOT / 'js/consola-campanas.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     mount_start = ',(0,N.jsx)(Bi,{intent:f,summary:C,onClose:()=>p(null),onConfirmed:T'
     mount_end = ',"data-visual-edit-component":`LeadModal`,"data-visual-edit-editable":`false`})'

@@ -3,13 +3,13 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/conversor-optimizador-imagenes.html', ROOT / 'conversor-optimizador-imagenes/index.html']:
+for path in [ROOT / 'html/conversor-optimizador-imagenes.html', ROOT / 'html/conversor-optimizador-imagenes.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'\s*<section id="curso".*?</section>\s*', '\n', text, count=1, flags=re.S)
     text = re.sub(r'\s*<!-- SCRIPT DE CAPTURA DE LEADS Y CURSO WPO -->\s*<script>.*?</script>\s*', '\n', text, count=1, flags=re.S)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/conversor-optimizador-imagenes.js', ROOT / 'conversor-optimizador-imagenes/assets/index.js']:
+for path in [ROOT / 'js/conversor-optimizador-imagenes.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'\(0,P\.jsx\)\(Rr,\{[^{}]*\}\)', 'null', text, count=1)
     start_marker = 'Pr=null;function Fr()'

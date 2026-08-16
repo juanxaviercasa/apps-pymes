@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/generador-contratos-servicios.html', ROOT / 'generador-contratos-servicios/index.html']:
+for path in [ROOT / 'html/generador-contratos-servicios.html', ROOT / 'html/generador-contratos-servicios.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<form[^>]*id=["\']form-captura-lead["\'][^>]*>.*?</form>', '', text, count=1, flags=re.S | re.I)
     text = re.sub(r'\s*<script>\s*function registrarLead\(event\).*?</script>\s*', '\n', text, count=1, flags=re.S)
@@ -12,7 +12,7 @@ for path in [ROOT / 'apps/generador-contratos-servicios.html', ROOT / 'generador
     text = re.sub(r'[ \t]+\n', '\n', text)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/generador-contratos-servicios.js', ROOT / 'generador-contratos-servicios/assets/index.js']:
+for path in [ROOT / 'js/generador-contratos-servicios.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     # Remove the external lead persistence function and its endpoint declaration.
     start_marker = 'var gr=`https://script.google.com/'

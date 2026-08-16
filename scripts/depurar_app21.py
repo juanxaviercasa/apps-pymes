@@ -4,8 +4,7 @@ import re
 ROOT = Path('/home/ubuntu/apps-pymes')
 
 html_files = [
-    ROOT / 'apps/organizador-matriz-contenidos.html',
-    ROOT / 'organizador-matriz-contenidos/index.html',
+    ROOT / 'html/organizador-matriz-contenidos.html',
 ]
 for path in html_files:
     text = path.read_text(encoding='utf-8', errors='replace')
@@ -27,8 +26,7 @@ for path in html_files:
     path.write_text(text, encoding='utf-8')
 
 bundle_files = [
-    ROOT / 'apps/js/organizador-matriz-contenidos.js',
-    ROOT / 'organizador-matriz-contenidos/assets/index.js',
+    ROOT / 'js/organizador-matriz-contenidos.js',
 ]
 for path in bundle_files:
     text = path.read_text(encoding='utf-8', errors='replace')

@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/generador-politicas-terminos.html', ROOT / 'generador-politicas-terminos/index.html']:
+for path in [ROOT / 'html/generador-politicas-terminos.html', ROOT / 'html/generador-politicas-terminos.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<form[^>]*(?:id|name)=["\'][^"\']*(?:lead|email)["\'][^>]*>.*?</form>', '', text, count=1, flags=re.S | re.I)
     text = re.sub(r'\s*<label[^>]*>.*?<input[^>]*id="input-correo".*?</label>\s*', '\n', text, count=1, flags=re.S | re.I)
@@ -12,7 +12,7 @@ for path in [ROOT / 'apps/generador-politicas-terminos.html', ROOT / 'generador-
     text = re.sub(r'[ \t]+\n', '\n', text)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/generador-politicas-terminos.js', ROOT / 'generador-politicas-terminos/assets/index.js']:
+for path in [ROOT / 'js/generador-politicas-terminos.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
 
     # Remove PocketBase/captcha lead persistence and notification helpers.

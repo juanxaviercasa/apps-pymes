@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/generador-paletas-corporativas.html', ROOT / 'generador-paletas-corporativas/index.html']:
+for path in [ROOT / 'html/generador-paletas-corporativas.html', ROOT / 'html/generador-paletas-corporativas.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<form[^>]*(?:id|name)=["\'][^"\']*(?:lead|email)[^"\']*["\'][^>]*>.*?</form>', '', text, count=1, flags=re.S | re.I)
     text = re.sub(r'\s*<script>\s*function registrarLeadChroma\(event\).*?</script>\s*', '\n', text, count=1, flags=re.S)
@@ -12,7 +12,7 @@ for path in [ROOT / 'apps/generador-paletas-corporativas.html', ROOT / 'generado
     text = re.sub(r'[ \t]+\n', '\n', text)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/generador-paletas-corporativas.js', ROOT / 'generador-paletas-corporativas/assets/index.js']:
+for path in [ROOT / 'js/generador-paletas-corporativas.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
 
     # Captcha/contact helper and LeadModal are used only by the lead-capture flow.

@@ -2,7 +2,7 @@ from pathlib import Path
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/js/calculadora-sobrecostos-laborales.js', ROOT / 'calculadora-sobrecostos-laborales/assets/index.js']:
+for path in [ROOT / 'js/calculadora-sobrecostos-laborales.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     old = 'onClick:()=>s(!0),disabled:f.length===0'
     new = 'onClick:()=>VS(f,p,{nombre:``,correo:``},e,t===`anual`?`Anual (12 meses)`:`Mensual`),disabled:f.length===0'

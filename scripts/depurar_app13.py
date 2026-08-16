@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/generador-codigos-qr.html', ROOT / 'generador-codigos-qr/index.html']:
+for path in [ROOT / 'html/generador-codigos-qr.html', ROOT / 'html/generador-codigos-qr.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     text = re.sub(r'<form[^>]*id="form-captura-lead".*?</form>', '', text, count=1, flags=re.S)
     text = re.sub(r'<a[^>]*href="/admin"[^>]*>.*?</a>', '', text, count=1, flags=re.S)
@@ -12,7 +12,7 @@ for path in [ROOT / 'apps/generador-codigos-qr.html', ROOT / 'generador-codigos-
     text = re.sub(r'\n[ \t]+\n', '\n\n', text)
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/generador-codigos-qr.js', ROOT / 'generador-codigos-qr/assets/index.js']:
+for path in [ROOT / 'js/generador-codigos-qr.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     # The QR download is already local; invoke it directly instead of opening EmailGate.
     text = text.replace('}b(!0)}async function k()', '}k()}async function k()', 1)

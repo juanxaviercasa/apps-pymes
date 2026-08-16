@@ -2,8 +2,7 @@ from pathlib import Path
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 FILES = [
-    ROOT / 'apps/js/guiones-manejo-objeciones.js',
-    ROOT / 'guiones-manejo-objeciones/assets/index.js',
+    ROOT / 'js/guiones-manejo-objeciones.js',
 ]
 
 

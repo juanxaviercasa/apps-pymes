@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/calculadora-flete-envio-local.html', ROOT / 'calculadora-flete-envio-local/index.html']:
+for path in [ROOT / 'html/calculadora-flete-envio-local.html', ROOT / 'html/calculadora-flete-envio-local.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     original = text
     start_marker = '<!-- Lead Capture -->'
@@ -17,7 +17,7 @@ for path in [ROOT / 'apps/calculadora-flete-envio-local.html', ROOT / 'calculado
         raise RuntimeError(f'No se modificÃ³ la captura de proveedor en {path}')
     path.write_text(text, encoding='utf-8')
 
-for path in [ROOT / 'apps/js/calculadora-flete-envio-local.js', ROOT / 'calculadora-flete-envio-local/assets/index.js']:
+for path in [ROOT / 'js/calculadora-flete-envio-local.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
 
     home_start = ',(0,M.jsx)(`div`,{className:`__NO_LEAD_WRAPPER__`'

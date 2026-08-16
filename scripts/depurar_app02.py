@@ -3,7 +3,7 @@ import re
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 
-for path in [ROOT / 'apps/auditor-seo-basico.html', ROOT / 'auditor-seo-basico/index.html']:
+for path in [ROOT / 'html/auditor-seo-basico.html', ROOT / 'html/auditor-seo-basico.html']:
     text = path.read_text(encoding='utf-8', errors='replace')
     original = text
     text = re.sub(r'\s*<!-- Upsell / Lead Capture Section -->.*?</div>\s*\n\s*</main>', '\n\n      </main>', text, count=1, flags=re.S)
@@ -12,7 +12,7 @@ for path in [ROOT / 'apps/auditor-seo-basico.html', ROOT / 'auditor-seo-basico/i
         path.write_text(text, encoding='utf-8')
 
 modal_mount = 'i&&(0,M.jsx)(Oi,{audit:e,score:y,onClose:()=>a(!1),"data-visual-edit-loc":`src/pages/Index.tsx:357:8`,"data-visual-edit-component":`LeadModal`,"data-visual-edit-editable":`false`})'
-for path in [ROOT / 'apps/js/auditor-seo-basico.js', ROOT / 'auditor-seo-basico/assets/index.js']:
+for path in [ROOT / 'js/auditor-seo-basico.js']:
     text = path.read_text(encoding='utf-8', errors='replace')
     count = text.count(modal_mount)
     if count > 1:
