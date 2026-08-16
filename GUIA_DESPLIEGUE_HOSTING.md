@@ -251,6 +251,33 @@ git push origin main
 
 Después del `push`, espera a que el workflow de Pages termine correctamente y prueba una URL nueva en una ventana privada o con `Ctrl + F5`. Los navegadores y algunas redes pueden conservar HTML, CSS o JavaScript anteriores en caché.
 
+## 11. Optimización de CSS y JavaScript
+
+Los recursos publicados se pueden volver a optimizar de forma reproducible con `scripts/optimizar_assets.py`. El script usa CleanCSS para los 23 archivos CSS y Terser para los 23 bundles JavaScript; conserva las rutas, comprueba el número esperado de archivos y no modifica la lógica de las aplicaciones de forma manual.
+
+Ejecuta la optimización desde la raíz del repositorio:
+
+```bash
+python3 scripts/optimizar_assets.py optimize
+python3 scripts/optimizar_assets.py check
+python3 scripts/validar_estructura_publica.py
+python3 scripts/validacion_global.py
+```
+
+La optimización debe ejecutarse antes de crear el commit, nunca directamente sobre una copia aislada del hosting. Después de minificar, revisa la sintaxis con `node --check`, abre las aplicaciones principales y comprueba que no haya errores en la consola. Si una aplicación muestra únicamente el fondo, restaura el último commit funcional y corrige primero la causa JavaScript; no reemplaces el contenido por una pantalla vacía.
+
+La reducción del archivo original no siempre representa la reducción exacta de transferencia: GitHub Pages y otros hostings pueden aplicar gzip o Brotli automáticamente. Configura una caché larga para archivos versionados o con nombres que cambien junto con cada despliegue, pero evita cachear indefinidamente `index.html` si necesitas que los usuarios reciban rápidamente nuevas rutas:
+
+| Recurso | Recomendación de caché |
+|---|---|
+| `index.html` | Revalidación frecuente o `max-age` corto |
+| `*.html` de aplicaciones | Revalidación frecuente cuando cambie la interfaz |
+| `css/*.css` | Caché larga si se publica con una nueva versión o commit |
+| `js/*.js` | Caché larga si se publica con una nueva versión o commit |
+| `assets/favicon.png` | Caché moderada o larga |
+
+Nunca subas únicamente los archivos que cambiaron. Publica la raíz completa, conserva la correspondencia entre cada HTML, su CSS y su JS, y prueba el sitio después de que el CDN termine de actualizarse.
+
 ## Referencias
 
 [1]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site "GitHub Docs — Configuring a publishing source for your GitHub Pages site"

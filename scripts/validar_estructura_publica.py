@@ -52,8 +52,10 @@ for path in html_paths:
     bundle_text = bundle_path.read_text(encoding='utf-8', errors='replace') if bundle_path.is_file() else ''
     if name == 'auditor-seo-basico' and 'var ki={"title-len"' not in bundle_text:
         errors.append('auditor-seo-basico.js no contiene la tabla legítima de mensajes ki.')
-    root_match = re.search(r'\.jsx\)\([^,]+,\{path:`/`,element:\(0,[^)]*\.jsx\)\(([^,]+),', bundle_text)
-    wildcard_match = re.search(r'\.jsx\)\([^,]+,\{path:`\*`,element:\(0,[^)]*\.jsx\)\(([^,]+),', bundle_text)
+    route_prefix = r'\.jsx\)\([^,]+,\{path:'
+    route_component = r'element:\(0,[^)]*\.jsx\)\(([^,]+),'
+    root_match = re.search(route_prefix + r'(?:"/"|\'/\'|`/`),' + route_component, bundle_text)
+    wildcard_match = re.search(route_prefix + r'(?:(?:"\*")|(?:\'\*\')|(?:`\*`)),' + route_component, bundle_text)
     if not root_match or not wildcard_match or root_match.group(1) != wildcard_match.group(1):
         errors.append(f'{name}.js no tiene ruta wildcard standalone apuntando al componente principal.')
 
