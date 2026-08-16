@@ -14,51 +14,14 @@
 <body>
   <div id="root">
     <div class="min-h-screen">
-      
+
       <!-- Lead Capture Modal -->
       <!-- Nota: Puedes controlar su visibilidad con JavaScript añadiendo/quitar la clase 'hidden' -->
-      <div class="fixed inset-0 z-50 flex items-center justify-center p-4" id="lead-modal">
-        <div class="absolute inset-0 bg-navy-950/80 backdrop-blur-sm" aria-hidden="true"></div>
-        <div role="dialog" aria-modal="true" aria-labelledby="lead-title" class="relative w-full max-w-md animate-pop overflow-hidden rounded-panel border border-navy-700 bg-navy-900 shadow-2xl">
-          <div class="h-1.5 w-full bg-orange-500"></div>
-          <button type="button" aria-label="Cerrar" class="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-lg text-blue-300/50 transition-colors hover:bg-navy-800 hover:text-blue-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
-              <path d="M18 6 6 18"></path>
-              <path d="m6 6 12 12"></path>
-            </svg>
-          </button>
-          <div class="p-8">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/15">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check text-orange-400">
-                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                <path d="m9 12 2 2 4-4"></path>
-              </svg>
-            </div>
-            <h2 id="lead-title" class="text-xl font-bold leading-snug text-blue-50">
-              Recibe una Guía de Ciberseguridad para Pymes
-            </h2>
-            <p class="mt-2 text-sm leading-relaxed text-blue-300/70">
-              Buenas prácticas de contraseñas, gestión de accesos y protección de tu equipo. Sin coste.
-            </p>
-            
-            <form id="lead-form" class="mt-6 space-y-3">
-              <input id="email" required="" placeholder="tu@empresa.com" type="email" class="w-full rounded-xl border border-navy-800 bg-navy-950 px-4 py-3 text-sm text-blue-100 placeholder:text-blue-300/30 focus:border-blue-500">
-              <input id="company" placeholder="Nombre de tu empresa (opcional)" type="text" class="w-full rounded-xl border border-navy-800 bg-navy-950 px-4 py-3 text-sm text-blue-100 placeholder:text-blue-300/30 focus:border-blue-500">
-              <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-bold text-navy-950 transition-all hover:bg-orange-400 disabled:opacity-60">
-                Quiero mi guía gratuita
-              </button>
-            </form>
-            
-            <button class="mt-4 w-full text-center text-xs text-blue-300/40 transition-colors hover:text-blue-300/70">
-              Ahora no, ir al generador
-            </button>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Contenido Principal -->
       <div class="relative mx-auto max-w-5xl px-5 py-10 sm:py-14">
-        
+
         <header class="mb-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-3">
             <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/15 ring-1 ring-blue-500/30">
@@ -390,70 +353,6 @@
   </div>
 
   <!-- SCRIPT DE CAPTURA DE LEADS (GUÍA DE CIBERSEGURIDAD) -->
-  <script>
-    function registrarLeadSecuKey(event) {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('email');
-      const companyInput = document.getElementById('company');
-      
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      const company = companyInput ? companyInput.value : '';
-      
-      if (!email) {
-        console.warn('El correo es obligatorio.');
-        return;
-      }
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      const payload = {
-        email: email,
-        company: company,
-        origen: 'SecuKey - Guía Ciberseguridad'
-      };
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        console.log('Lead de SecuKey registrado con éxito.');
-        event.target.reset();
-        
-        // Opcional: ocultar el modal automáticamente al tener éxito
-        const modal = document.getElementById('lead-modal');
-        if(modal) modal.classList.add('hidden');
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const leadForm = document.getElementById('lead-form');
-      if (leadForm) {
-        leadForm.addEventListener('submit', registrarLeadSecuKey);
-      }
-      
-      // Control básico para el botón de "Ahora no, ir al generador"
-      const closeButtons = document.querySelectorAll('button[aria-label="Cerrar"], button:contains("Ahora no")');
-      const modal = document.getElementById('lead-modal');
-      
-      closeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if(modal) modal.classList.add('hidden');
-        });
-      });
-    });
-  </script>
 </body>
 </html>
 

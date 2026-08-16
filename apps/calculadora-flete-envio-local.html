@@ -308,43 +308,6 @@
           </section>
         </div>
         
-        <!-- Lead Capture -->
-        <div class="mx-auto mt-10 max-w-2xl">
-          <section aria-labelledby="lead-title" class="rounded-panel border border-navy-700/70 bg-navy-850 p-5 sm:p-6">
-            <div class="mb-1 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store h-5 w-5 text-brand-500">
-                <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
-                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
-                <path d="M2 7h20"></path>
-                <path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path>
-              </svg>
-              <h2 id="lead-title" class="text-lg font-semibold text-white">Solicitar proveedor logÃ­stico</h2>
-            </div>
-            <p class="mb-5 text-sm text-brand-300/60">DÃ©janos tus datos y te conectamos con un socio de despacho para tu comercio.</p>
-            <form id="lead-form" class="space-y-4">
-              <div>
-                <label for="store" class="mb-1.5 block text-sm font-medium text-brand-300">Nombre del comercio</label>
-                <input id="store" placeholder="Mi Tienda" class="w-full rounded-lg border border-navy-600 bg-navy-950/50 px-3 py-2.5 text-white placeholder:text-navy-600 focus:border-brand-500 focus:outline-none" type="text" value="">
-              </div>
-              <div>
-                <label for="email" class="mb-1.5 block text-sm font-medium text-brand-300">Correo electrÃ³nico <span class="text-cta-500">*</span></label>
-                <input id="email" required="" placeholder="contacto@mitienda.com" class="w-full rounded-lg border bg-navy-950/50 px-3 py-2.5 text-white placeholder:text-navy-600 focus:outline-none border-navy-600 focus:border-brand-500" type="email" value="">
-              </div>
-              <div>
-                <label for="phone" class="mb-1.5 block text-sm font-medium text-brand-300">TelÃ©fono / WhatsApp</label>
-                <input id="phone" placeholder="+56 9 1234 5678" class="w-full rounded-lg border border-navy-600 bg-navy-950/50 px-3 py-2.5 text-white placeholder:text-navy-600 focus:border-brand-500 focus:outline-none" type="tel" value="">
-              </div>
-              <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-lg bg-cta-500 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-cta-600">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-4 w-4">
-                  <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
-                  <path d="m21.854 2.147-10.94 10.939"></path>
-                </svg> 
-                Solicitar proveedor logÃ­stico
-              </button>
-            </form>
-          </section>
-        </div>
         
       </main>
       <footer class="border-t border-navy-700/60 py-6 text-center text-xs text-brand-300/40">
@@ -352,62 +315,6 @@
       </footer>
     </div>
   </div>
-
-  <!-- SCRIPT DE CAPTURA DE LEADS Y SOLICITUD DE PROVEEDOR -->
-  <script>
-    function registrarLeadFlete(event) {
-      event.preventDefault();
-      
-      const storeInput = document.getElementById('store');
-      const emailInput = document.getElementById('email');
-      const phoneInput = document.getElementById('phone');
-      
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      const store = storeInput ? storeInput.value : '';
-      const phone = phoneInput ? phoneInput.value : '';
-      
-      if (!email) {
-        console.warn('El correo es obligatorio.');
-        return;
-      }
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      const payload = {
-        email: email,
-        store: store,
-        phone: phone,
-        origen: 'Calculadora Flete Local - Solicitar Proveedor'
-      };
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        console.log('Solicitud de proveedor registrada con Ã©xito.');
-        event.target.reset();
-        // Opcional: mostrar un mensaje de Ã©xito al usuario
-      })
-      .catch(error => {
-        console.error('Error al registrar la solicitud:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const leadForm = document.getElementById('lead-form');
-      if (leadForm) {
-        leadForm.addEventListener('submit', registrarLeadFlete);
-      }
-    });
-  </script>
 </body>
 </html>
 

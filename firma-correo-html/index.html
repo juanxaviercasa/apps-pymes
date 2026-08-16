@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <title>Firma de Correo HTML</title>
-  
+
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script>
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script>
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script>
-  
+
   <script type="module" crossorigin="" src="./assets/index.js"></script>
   <link rel="stylesheet" crossorigin="" href="./assets/index.css">
-  
+
   <script>
     (() => {
       let e = new URLSearchParams(window.location.search).get("sgv");
@@ -70,10 +70,10 @@
       document.readyState === "complete" || document.readyState === "interactive" ? s() : document.addEventListener("DOMContentLoaded", s);
     })();
   </script>
-  
+
   <script type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="7adfd2ff-3032-4bde-9f60-5c26edd01460" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script>
   <script type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="7adfd2ff-3032-4bde-9f60-5c26edd01460" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script>
-  
+
   <script>
     (function(){var e=`sg-preview`;function t(e){"@babel/helpers - typeof";return t=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},t(e)}function n(e,n){if(t(e)!=`object`||!e)return e;var r=e[Symbol.toPrimitive];if(r!==void 0){var i=r.call(e,n||`default`);if(t(i)!=`object`)return i;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(n===`string`?String:Number)(e)}function r(e){var r=n(e,`string`);return t(r)==`symbol`?r:r+``}function i(e,t,n){return(t=r(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var a=class{constructor(e){if(i(this,`source`,void 0),i(this,`allowedOrigins`,void 0),i(this,`targetOrigin`,void 0),i(this,`debug`,void 0),i(this,`messageHandlers`,new Map),!e.allowedOrigins?.length)throw Error(`[EventCommunicator] allowedOrigins is required`);this.source=e.source,this.allowedOrigins=e.allowedOrigins,this.targetOrigin=e.targetOrigin||`*`,this.debug=e.debug||!1,e.messageHandlers&&this.registerMessageHandlers(e.messageHandlers),e.domEvents&&this.registerDOMEvents(e.domEvents),this.initMessageListener()}log(...e){this.debug&&console.log(`[EventCommunicator]`,...e)}formatEventType(t){return`${e}:${t}`}parseEventType(t){let n=`${e}:`;return t.startsWith(n)?t.slice(n.length):null}isOriginAllowed(e){return this.allowedOrigins.some(t=>t===`*`?!0:e===t||e.endsWith(t))}initMessageListener(){window.addEventListener(`message`,e=>{if(this.log(`Message received from:`,e.origin),!this.isOriginAllowed(e.origin)){console.warn(`[EventCommunicator] Wrong origin:`,e.origin);return}let t=e.data;if(!t?.type)return;let n=this.parseEventType(t.type);if(!n)return;this.log(`Parsed event type:`,n);let r=this.messageHandlers.get(n);r?r(t.payload):this.log(`No handler for:`,n)})}registerMessageHandlers(e){Object.entries(e).forEach(([e,t])=>{this.messageHandlers.set(e,t)})}registerDOMEvents(e){e.forEach(({event:e,handler:t,options:n})=>{window.addEventListener(e,t,n)})}getTargetWindow(){try{if(window.parent&&window.parent!==window)return window.parent;if(window.top&&window.top!==window)return window.top;if(window.opener)return window.opener}catch{if(window.parent&&window.parent!==window)return window.parent}return null}send(e,t){let n=this.getTargetWindow();if(!n)return;let r={type:this.formatEventType(e),source:this.source,payload:t??null,timestamp:new Date().toISOString()};n.postMessage(r,this.targetOrigin)}},o=`visual-editor`,s={ACTIVATE_INSPECTOR:`ACTIVATE_INSPECTOR`,DEACTIVATE_INSPECTOR:`DEACTIVATE_INSPECTOR`,MAKE_EDITABLE:`MAKE_EDITABLE`,APPLY_STYLE:`APPLY_STYLE`,CHANGE_TEXT_TYPE:`CHANGE_TEXT_TYPE`,ADD_LINK:`ADD_LINK`,INSERT_EMOJI:`INSERT_EMOJI`,CHANGE_IMAGE_SRC:`CHANGE_IMAGE_SRC`,SET_ALT_TEXT:`SET_ALT_TEXT`,SHOW_IMAGE_LOADING:`SHOW_IMAGE_LOADING`,HIDE_IMAGE_LOADING:`HIDE_IMAGE_LOADING`,TOGGLE_DEBUG:`TOGGLE_DEBUG`,CLEAR_SELECTION:`CLEAR_SELECTION`,UNDO:`UNDO`,REDO:`REDO`},c={ELEMENT_SELECTED:`ELEMENT_SELECTED`,ELEMENT_RECT_UPDATED:`ELEMENT_RECT_UPDATED`,SELECTION_CLEARED:`SELECTION_CLEARED`,CONTENT_CHANGED:`CONTENT_CHANGED`,STYLE_APPLIED:`STYLE_APPLIED`,TEXT_TYPE_CHANGE_REQUESTED:`TEXT_TYPE_CHANGE_REQUESTED`,LINK_CHANGE_REQUESTED:`LINK_CHANGE_REQUESTED`,EMOJI_INSERTED:`EMOJI_INSERTED`,IMAGE_SRC_CHANGED:`IMAGE_SRC_CHANGED`,ALT_TEXT_SET:`ALT_TEXT_SET`,EDITING_TEXT:`EDITING_TEXT`,HISTORY_STATE_CHANGED:`HISTORY_STATE_CHANGED`},l={LOC:`data-visual-edit-loc`,COMPONENT:`data-visual-edit-component`,EDITABLE:`data-visual-edit-editable`,OVERLAY:`data-visual-edit-overlay`,LABEL:`data-visual-edit-label`,LABEL_POSITION:`data-visual-edit-label-position`,DIMENSIONS:`data-visual-edit-dimensions`},u={BOLD:`bold`,ITALIC:`italic`,UNDERLINE:`underline`,LINE_THROUGH:`line-through`,COLOR:`color`,BACKGROUND_COLOR:`backgroundColor`,TEXT_ALIGN:`textAlign`,FONT_SIZE:`fontSize`},d={HOVER:`hover`,SELECTED:`selected`,LOADING:`loading`},f={SPAN:`span`,IMG:`img`,BUTTON:`button`,A:`a`},ee=[`h1`,`h2`,`h3`,`h4`,`h5`,`h6`,`p`,f.SPAN,`label`,`b`,`i`,`strong`,`em`,`small`,`mark`,`del`,`ins`,`sub`,`sup`,`div`,`li`,`dt`,`dd`],p=!1,m=`%c[Visual Editor]`,h=`color: #7c3aed; font-weight: bold;`,g={CONTENT_CHANGED:`âœï¸`,EMOJI_INSERTED:`ðŸ˜€`,STYLE_APPLIED:`ðŸŽ¨`,TEXT_TYPE_CHANGE_REQUESTED:`ðŸ”¤`,LINK_CHANGE_REQUESTED:`ðŸ”—`,IMAGE_SRC_CHANGED:`ðŸ–¼ï¸`,ALT_TEXT_SET:`ðŸ·ï¸`},_={CONTENT_CHANGED:`#059669`,EMOJI_INSERTED:`#d97706`,STYLE_APPLIED:`#2563eb`,TEXT_TYPE_CHANGE_REQUESTED:`#7c3aed`,LINK_CHANGE_REQUESTED:`#0891b2`,IMAGE_SRC_CHANGED:`#be185d`,ALT_TEXT_SET:`#be185d`},v=(e,t)=>{switch(e){case`STYLE_APPLIED`:{let e=t.style||t.after,n=t.before,r=t.after;return e===`fontSize`||t.fontSize?`fontSize: ${n} â†’ ${r} (preview: inline style)`:`${e}: ${n} â†’ ${r}`}case`TEXT_TYPE_CHANGE_REQUESTED`:{let e=t[`tag before`],n=t[`tag after`],r=t.fontSize,i=`<${e}> â†’ <${n}>`;return r?`${i} (preview: inline ${r})`:i}case`CONTENT_CHANGED`:return`"${String(t.after||``).slice(0,40)}"`;case`EMOJI_INSERTED`:return`${t.emoji} added`;default:return Object.entries(t).slice(0,2).map(([e,t])=>`${e}: ${t}`).join(`, `)}},y=()=>{p=!p,console.log(m+(p?` %cðŸŸ¢ Debug mode ENABLED`:` %cðŸ”´ Debug mode DISABLED`),h,`color: ${p?`#16a34a`:`#dc2626`}; font-weight: bold;`)},b=(e,t,n,r)=>{if(!p)return;let i=_[e]??`#6b7280`,a=g[e]??`ðŸ“`,o=n.tagName.toLowerCase(),s=v(e,r);console.groupCollapsed(`${m} %c${a} PREVIEW ${e}%c  <${o}>  %c${s}`,h,`color: ${i}; font-weight: bold;`,`color: #6b7280; font-weight: normal;`,`color: #0891b2; font-weight: normal;`),console.log(`%cLocation`,`font-weight: bold;`,t),console.log(`%cElement`,`font-weight: bold;`,`<${o}>`,n.className?`class="${n.className}"`:`(no class)`),console.log(`%cDetails`,`font-weight: bold;`,r),console.groupEnd()},x=e=>{let t=document.createElement(`div`);return t.innerHTML=`
     <svg xmlns="http://www.w3.org/2000/svg" class="sg-icon-loader-circular" viewBox="25 25 50 50" style="width: ${e}px; height: ${e}px;">
@@ -417,7 +417,7 @@
 `);document.documentElement.style.display=``,document.documentElement.style.height=`100%`,document.documentElement.style.width=`100%`,document.head&&(document.head.innerHTML=`<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       ${n}
       ${r}`),document.body&&(document.body.innerHTML=``,document.body.style.margin=`0`,document.body.style.padding=`0`,document.body.style.overflow=`hidden`,document.body.style.height=`100%`,document.body.style.width=`100%`,document.body.style.display=`flex`,document.body.style.flexDirection=`column`,document.body.style.backgroundColor=`var(--color-background-inverse, #363636)`),m(),document.body.appendChild(h(e));let i=document.createElement(u.Div);i.className=`sg-preview-iframe-wrapper`;let a=document.createElement(u.Iframe);a.id=`sg-preview-iframe`,a.src=window.location.href,i.appendChild(a),document.body.appendChild(i),window.addEventListener(`message`,e=>{if(e.origin===window.location.origin){if(e.data?.type===g){let t=e.data?.payload?.url;if(!_(t))return;window.location.href=t;return}if(e.data?.type===`sg-preview-nav`&&e.data?.url){let t=new URLSearchParams(window.location.search),n=t.get(`p`),r=t.get(`d`),i=e.data.url;try{let e=new URL(i,window.location.origin);n&&e.searchParams.get(`p`)!==n&&e.searchParams.set(`p`,n),r&&e.searchParams.get(`d`)!==r&&e.searchParams.set(`d`,r),i=e.href.replace(e.origin,``)}catch{}window.location.pathname+window.location.search+window.location.hash!==i&&(e.data.action===`push`?window.history.pushState(null,``,i):window.history.replaceState(null,``,i))}}}),window.addEventListener(`popstate`,()=>{a.contentWindow&&a.contentWindow.location.replace(window.location.href)})},y=()=>{function e(e){try{if(!e||typeof e!=`string`&&!(e instanceof URL))return e;let t=window.location.origin,n=new URL(String(e),t);if(n.origin===t){let e=new URLSearchParams(window.location.search),t=e.get(`p`),r=e.get(`d`);return t&&n.searchParams.get(`p`)!==t&&n.searchParams.set(`p`,t),r&&n.searchParams.get(`d`)!==r&&n.searchParams.set(`d`,r),n.href.replace(n.origin,``)}return e}catch{return e}}let t=(e=`replace`)=>{try{if(window.parent===window)return;let t=window.location.pathname+window.location.search+window.location.hash;window.parent.postMessage({type:`sg-preview-nav`,url:t,action:e},window.location.origin)}catch{}},n=window.open;window.open=function(...t){return t[0]&&(t[0]=e(t[0])),n.apply(this,t)};let r=history.pushState;history.pushState=function(...n){n[2]&&(n[2]=e(n[2]));let i=r.apply(this,n);return setTimeout(()=>t(`push`),10),i};let i=history.replaceState;history.replaceState=function(...n){n[2]&&(n[2]=e(n[2]));let r=i.apply(this,n);return setTimeout(()=>t(`replace`),10),r},document.addEventListener(`click`,t=>{let n=t.target?.closest(`a`);if(!n||!n.href||n.href.startsWith(`mailto:`)||n.href.startsWith(`tel:`)||n.href.startsWith(`javascript:`))return;let r=e(n.href),i=typeof r==`string`?r:String(r);n.href!==i&&(n.href=i)},!0),window.addEventListener(`popstate`,()=>{setTimeout(()=>t(`replace`),10)}),window.addEventListener(`hashchange`,()=>{setTimeout(()=>t(`replace`),10)}),t(`replace`)};new URLSearchParams(window.location.search).get(`p`)===`1`&&(window===window.top?(document.documentElement.style.display=`none`,document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,v):v()):document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,y):y())})();</script>
-  <script>window.__SG_PREVIEW_ROUTES = {"isSPA":true,"routes":["/","/admin"]};</script>
+  <script>window.__SG_PREVIEW_ROUTES = {"isSPA":true,"routes":["/"]};</script>
   <script>(function(){var e=`sg-preview`;function t(e){"@babel/helpers - typeof";return t=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},t(e)}function n(e,n){if(t(e)!=`object`||!e)return e;var r=e[Symbol.toPrimitive];if(r!==void 0){var i=r.call(e,n||`default`);if(t(i)!=`object`)return i;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(n===`string`?String:Number)(e)}function r(e){var r=n(e,`string`);return t(r)==`symbol`?r:r+``}function i(e,t,n){return(t=r(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var a=class{constructor(e){if(i(this,`source`,void 0),i(this,`allowedOrigins`,void 0),i(this,`targetOrigin`,void 0),i(this,`debug`,void 0),i(this,`messageHandlers`,new Map),!e.allowedOrigins?.length)throw Error(`[EventCommunicator] allowedOrigins is required`);this.source=e.source,this.allowedOrigins=e.allowedOrigins,this.targetOrigin=e.targetOrigin||`*`,this.debug=e.debug||!1,e.messageHandlers&&this.registerMessageHandlers(e.messageHandlers),e.domEvents&&this.registerDOMEvents(e.domEvents),this.initMessageListener()}log(...e){this.debug&&console.log(`[EventCommunicator]`,...e)}formatEventType(t){return`${e}:${t}`}parseEventType(t){let n=`${e}:`;return t.startsWith(n)?t.slice(n.length):null}isOriginAllowed(e){return this.allowedOrigins.some(t=>t===`*`?!0:e===t||e.endsWith(t))}initMessageListener(){window.addEventListener(`message`,e=>{if(this.log(`Message received from:`,e.origin),!this.isOriginAllowed(e.origin)){console.warn(`[EventCommunicator] Wrong origin:`,e.origin);return}let t=e.data;if(!t?.type)return;let n=this.parseEventType(t.type);if(!n)return;this.log(`Parsed event type:`,n);let r=this.messageHandlers.get(n);r?r(t.payload):this.log(`No handler for:`,n)})}registerMessageHandlers(e){Object.entries(e).forEach(([e,t])=>{this.messageHandlers.set(e,t)})}registerDOMEvents(e){e.forEach(({event:e,handler:t,options:n})=>{window.addEventListener(e,t,n)})}getTargetWindow(){try{if(window.parent&&window.parent!==window)return window.parent;if(window.top&&window.top!==window)return window.top;if(window.opener)return window.opener}catch{if(window.parent&&window.parent!==window)return window.parent}return null}send(e,t){let n=this.getTargetWindow();if(!n)return;let r={type:this.formatEventType(e),source:this.source,payload:t??null,timestamp:new Date().toISOString()};n.postMessage(r,this.targetOrigin)}},o=`sg-preview-plugin`,s={ROUTES_DISCOVERED:`ROUTES_DISCOVERED`,NAVIGATE_TO:`NAVIGATE_TO`,ROUTE_CHANGED:`ROUTE_CHANGED`},c=e=>{let t=window.history.pushState;window.history.pushState=function(...n){t.apply(this,n),e()};let n=window.history.replaceState;window.history.replaceState=function(...t){n.apply(this,t),e()},window.addEventListener(`popstate`,e),window.addEventListener(`hashchange`,e)},l=(e,t,n=!1)=>{let r=e;try{let t=new URL(e,window.location.origin);new URLSearchParams(window.location.search).forEach((e,n)=>{t.searchParams.has(n)||t.searchParams.set(n,e)}),r=`${t.pathname}${t.search}${t.hash}`}catch(e){console.warn(`[route-manager] Failed to merge URL parameters:`,e)}t&&!n?(window.history.pushState(null,``,r),window.dispatchEvent(new Event(`popstate`))):window.location.assign(r)},u=(e,t)=>{let n=e?.route,r=e?.hardReload;if(!n){console.error(`[route-manager] Invalid navigation payload received:`,e);return}l(n,t,r)},d=!1;(async e=>{if(!d){d=!0;try{let t=window.__SG_PREVIEW_ROUTES,n=!!t?.isSPA,r=t?.routes||[],i=new a({source:o,allowedOrigins:e,messageHandlers:{[s.NAVIGATE_TO]:e=>u(e,n)}});i.send(s.ROUTES_DISCOVERED,r);let l=()=>{i.send(s.ROUTE_CHANGED,{route:window.location.pathname})};l(),c(l)}catch(e){console.error(`[route-manager] Failed to fetch routes or initialize communicator:`,e)}}})([`.siteground.ai`,`.sgdev.eu`])})();</script>
 </head>
 <body>
@@ -576,37 +576,7 @@
             </div>
             <div class="mt-5 flex-1 overflow-y-auto pr-1" data-visual-edit-loc="src/components/EditorPanel.tsx:61:6" data-visual-edit-component="div" data-visual-edit-editable="false">
               <div class="animate-tab-in space-y-3.5" data-visual-edit-loc="src/components/EditorPanel.tsx:63:10" data-visual-edit-component="div" data-visual-edit-editable="false">
-                <label class="block" data-visual-edit-loc="src/components/Field.tsx:12:4" data-visual-edit-component="label" data-visual-edit-editable="false">
-                  <span class="mb-1.5 block text-xs font-medium tracking-wide text-blue-soft" data-visual-edit-loc="src/components/Field.tsx:13:6" data-visual-edit-component="span" data-visual-edit-editable="false">
-                    Nombre completo
-                  </span>
-                  <input placeholder="Ana GarcÃ­a Ruiz" class="w-full rounded-lg border bg-navy-950/60 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-blue-mid focus:ring-2 focus:ring-blue-mid/30 border-white/10" data-visual-edit-loc="src/components/Field.tsx:14:6" data-visual-edit-component="input" data-visual-edit-editable="false" type="text" value="Ana GarcÃ­a Ruiz">
-                </label>
-                <label class="block" data-visual-edit-loc="src/components/Field.tsx:12:4" data-visual-edit-component="label" data-visual-edit-editable="false">
-                  <span class="mb-1.5 block text-xs font-medium tracking-wide text-blue-soft" data-visual-edit-loc="src/components/Field.tsx:13:6" data-visual-edit-component="span" data-visual-edit-editable="false">
-                    Cargo
-                  </span>
-                  <input placeholder="Directora de Marketing" class="w-full rounded-lg border bg-navy-950/60 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-blue-mid focus:ring-2 focus:ring-blue-mid/30 border-white/10" data-visual-edit-loc="src/components/Field.tsx:14:6" data-visual-edit-component="input" data-visual-edit-editable="false" type="text" value="Directora de Marketing">
-                </label>
-                <label class="block" data-visual-edit-loc="src/components/Field.tsx:12:4" data-visual-edit-component="label" data-visual-edit-editable="false">
-                  <span class="mb-1.5 block text-xs font-medium tracking-wide text-blue-soft" data-visual-edit-loc="src/components/Field.tsx:13:6" data-visual-edit-component="span" data-visual-edit-editable="false">
-                    Empresa
-                  </span>
-                  <input placeholder="Estudio Nova" class="w-full rounded-lg border bg-navy-950/60 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-blue-mid focus:ring-2 focus:ring-blue-mid/30 border-white/10" data-visual-edit-loc="src/components/Field.tsx:14:6" data-visual-edit-component="input" data-visual-edit-editable="false" type="text" value="Nova Studio">
-                </label>
-                <label class="block" data-visual-edit-loc="src/components/Field.tsx:12:4" data-visual-edit-component="label" data-visual-edit-editable="false">
-                  <span class="mb-1.5 block text-xs font-medium tracking-wide text-blue-soft" data-visual-edit-loc="src/components/Field.tsx:13:6" data-visual-edit-component="span" data-visual-edit-editable="false">
-                    TelÃ©fono
-                  </span>
-                  <input placeholder="+34 600 123 456" class="w-full rounded-lg border bg-navy-950/60 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-blue-mid focus:ring-2 focus:ring-blue-mid/30 border-white/10" data-visual-edit-loc="src/components/Field.tsx:14:6" data-visual-edit-component="input" data-visual-edit-editable="false" type="text" value="+34 600 123 456">
-                </label>
-                <label class="block" data-visual-edit-loc="src/components/Field.tsx:12:4" data-visual-edit-component="label" data-visual-edit-editable="false">
-                  <span class="mb-1.5 block text-xs font-medium tracking-wide text-blue-soft" data-visual-edit-loc="src/components/Field.tsx:13:6" data-visual-edit-component="span" data-visual-edit-editable="false">
-                    Correo electrÃ³nico
-                  </span>
-                  <input id="input-correo" placeholder="ana@empresa.com" class="w-full rounded-lg border bg-navy-950/60 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-blue-mid focus:ring-2 focus:ring-blue-mid/30 border-white/10" data-visual-edit-loc="src/components/Field.tsx:14:6" data-visual-edit-component="input" data-visual-edit-editable="false" type="email" value="ana@novastudio.com">
-                </label>
-                <label class="block" data-visual-edit-loc="src/components/Field.tsx:12:4" data-visual-edit-component="label" data-visual-edit-editable="false">
+<label class="block" data-visual-edit-loc="src/components/Field.tsx:12:4" data-visual-edit-component="label" data-visual-edit-editable="false">
                   <span class="mb-1.5 block text-xs font-medium tracking-wide text-blue-soft" data-visual-edit-loc="src/components/Field.tsx:13:6" data-visual-edit-component="span" data-visual-edit-editable="false">
                     Sitio web
                   </span>
@@ -672,7 +642,7 @@
                 </button>
               </div>
               <div class="flex flex-wrap gap-2" data-visual-edit-loc="src/pages/Index.tsx:207:14" data-visual-edit-component="div" data-visual-edit-editable="false">
-                <button id="btn-enviar-lead" class="flex items-center justify-center gap-2 rounded-xl border border-blue-mid/50 bg-blue-mid/10 px-5 py-3.5 text-sm font-bold text-blue-soft transition-all hover:bg-blue-mid/20 hover:text-white active:scale-[0.98]" data-visual-edit-loc="src/pages/Index.tsx:208:16" data-visual-edit-component="button" data-visual-edit-editable="true">
+                <button id="btn-descargar-html" class="flex items-center justify-center gap-2 rounded-xl border border-blue-mid/50 bg-blue-mid/10 px-5 py-3.5 text-sm font-bold text-blue-soft transition-all hover:bg-blue-mid/20 hover:text-white active:scale-[0.98]" data-visual-edit-loc="src/pages/Index.tsx:208:16" data-visual-edit-component="button" data-visual-edit-editable="true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" data-visual-edit-loc="src/pages/Index.tsx:209:18" data-visual-edit-component="Download" data-visual-edit-editable="false">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
@@ -843,55 +813,10 @@
         </section>
       </main>
       <footer class="mx-auto max-w-7xl px-5 pb-8 text-center" data-visual-edit-loc="src/pages/Index.tsx:236:6" data-visual-edit-component="footer" data-visual-edit-editable="false">
-        <a class="text-xs text-blue-soft/60 transition-colors hover:text-blue-soft" data-visual-edit-loc="src/pages/Index.tsx:237:8" data-visual-edit-component="Link" data-visual-edit-editable="true" href="/admin">
-          Panel de administraciÃ³n
-        </a>
+
       </footer>
     </div>
   </div>
-  
-  <script>
-    function registrarLead(event) {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('input-correo');
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      if (!email) return;
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-      })
-      .then(() => {
-        console.log('Lead registrado con Ã©xito.');
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnEnviar = document.getElementById('btn-enviar-lead');
-      if (btnEnviar) {
-        const leadForm = btnEnviar.closest('form');
-        if (leadForm) {
-          leadForm.addEventListener('submit', registrarLead);
-        } else {
-          // Fallback en caso de que el botÃ³n no estÃ© dentro de un formulario
-          btnEnviar.addEventListener('click', registrarLead);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
 

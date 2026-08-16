@@ -14,7 +14,7 @@
 <body>
   <div id="root">
     <div class="flex min-h-screen flex-col bg-navy">
-      
+
       <!-- Encabezado -->
       <header class="border-b border-white/5 bg-navy-800/60 backdrop-blur-md">
         <div class="mx-auto flex max-w-[1500px] flex-col gap-4 px-5 py-5 lg:flex-row lg:items-center lg:justify-between">
@@ -65,7 +65,7 @@
 
       <!-- Principal -->
       <div class="mx-auto flex w-full max-w-[1500px] flex-col gap-4 px-5 py-5">
-        
+
         <!-- Toolbar -->
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div class="flex items-center gap-3">
@@ -130,7 +130,7 @@
 
         <!-- Barras de Salud y EstadÃ­sticas -->
         <div class="rounded-2xl border border-white/5 bg-navy-800/60 p-4">
-          
+
           <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity h-4 w-4 text-orange">
@@ -147,11 +147,11 @@
               Desbalanceada Â· 67 %
             </span>
           </div>
-          
+
           <div class="mb-4 h-2.5 overflow-hidden rounded-full bg-navy-700">
             <div class="h-full rounded-full bg-orange transition-all duration-500" style="width: 67%;"></div>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <div class="flex items-center gap-2.5">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-navy-700 text-blue-300">
@@ -171,7 +171,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="flex items-center gap-2.5">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-status-published/15 text-status-published">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video h-4 w-4">
@@ -189,7 +189,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="flex items-center gap-2.5">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-status-published/15 text-status-published">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-4 w-4">
@@ -211,7 +211,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="mt-4 border-t border-white/5 pt-4">
             <div class="flex flex-wrap items-center gap-2">
               <span class="text-xs font-bold uppercase tracking-wider text-white/40">Filtros</span>
@@ -257,9 +257,9 @@
                 </svg>
                 YouTube
               </button>
-              
+
               <span class="mx-1 h-5 w-px bg-white/10"></span>
-              
+
               <button class="flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold transition border-white/10 bg-navy-800 text-white/60 hover:border-blue-500/50 hover:text-white">
                 <span class="h-2 w-2 rounded-full" style="background-color: var(--color-status-idea);"></span>Idea
               </button>
@@ -284,7 +284,7 @@
                 Evergreen
               </button>
             </div>
-            
+
             <div class="mt-4 rounded-2xl border border-white/5 bg-navy-800/60 p-4">
               <div class="mb-3 flex items-center justify-between">
                 <h3 class="text-xs font-bold uppercase tracking-wider text-white/40">Balance por plataforma</h3>
@@ -310,7 +310,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="flex items-center gap-2.5">
                   <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-900/60 text-blue-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook h-4 w-4">
@@ -409,7 +409,7 @@
       <!-- Tablero Semanal (Kanban) -->
       <main class="flex-1 overflow-x-auto px-5 pb-8">
         <div class="flex gap-4 pb-4">
-          
+
           <!-- Lunes -->
           <section class="flex w-72 shrink-0 flex-col rounded-2xl bg-navy-800/70">
             <header class="flex items-center justify-between px-4 pb-3 pt-4">
@@ -757,76 +757,10 @@
           </section>
 
         </div>
-        
-        <!-- Upsell / Lead Capture Form (NUEVO) -->
-        <section class="mt-12 rounded-3xl border border-white/10 bg-navy-800/80 p-8 sm:p-10 text-center mx-auto max-w-3xl">
-          <h2 class="text-2xl font-bold text-white mb-2">Â¿Quieres dominar tu estrategia de contenidos?</h2>
-          <p class="text-blue-300/70 mb-6 text-sm max-w-xl mx-auto">ObtÃ©n nuestra Plantilla Avanzada de Matriz de Contenidos en Notion y Excel para planificar todo un trimestre de publicaciones.</p>
-          
-          <form id="lead-form" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-            <input id="input-correo" type="email" required placeholder="tu@correo.com" class="w-full rounded-xl border border-navy-700 bg-navy-900 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-blue-500 focus:outline-none">
-            <button type="submit" class="flex items-center justify-center gap-2 rounded-xl bg-orange px-6 py-3 font-bold text-navy transition hover:bg-orange-soft shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" x2="12" y1="15" y2="3"></line>
-              </svg>
-              Descargar plantilla
-            </button>
-          </form>
-        </section>
 
       </main>
     </div>
   </div>
-
-  <!-- SCRIPT DE CAPTURA DE LEADS -->
-  <script>
-    function registrarLeadMatriz(event) {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('input-correo');
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      if (!email) {
-        console.warn('El correo es obligatorio.');
-        return;
-      }
-
-      // Reemplaza esta URL con la URL de tu Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      const payload = {
-        email: email,
-        origen: 'Organizador Matriz de Contenidos'
-      };
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        console.log('Lead registrado con Ã©xito. Redirigiendo a plantilla...');
-        event.target.reset();
-        // AquÃ­ podrÃ­as mostrar un mensaje de Ã©xito o redirigir directamente al recurso.
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const leadForm = document.getElementById('lead-form');
-      if (leadForm) {
-        leadForm.addEventListener('submit', registrarLeadMatriz);
-      }
-    });
-  </script>
 </body>
 </html>
 
