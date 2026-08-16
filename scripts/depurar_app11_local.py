@@ -8,7 +8,8 @@ for path in [ROOT / 'apps/creador-facturas-proforma.html', ROOT / 'creador-factu
     text = re.sub(r'\s*<!-- SCRIPT DE CAPTURA DE LEADS -->\s*<script>.*?</script>', '', text, count=1, flags=re.S | re.I)
     text = re.sub(r'<script>\s*function registrarLead\(event\).*?</script>', '', text, count=1, flags=re.S)
     text = re.sub(r'\s*<label[^>]*>\s*<span[^>]*>Correo del cliente</span>.*?</label>', '', text, count=1, flags=re.S | re.I)
-    text = text.replace('Enviar al Cliente', 'Descargar para compartir')
+    text = text.replace('Enviar al Cliente', 'Descargar')
+    text = text.replace('Descargar para compartir', 'Descargar')
     text = text.replace('registrarLead', '')
     text = re.sub(r'[ \t]+\n', '\n', text)
     path.write_text(text, encoding='utf-8')
@@ -40,7 +41,8 @@ for path in [ROOT / 'apps/js/creador-facturas-proforma.js', ROOT / 'creador-fact
         text = text[:start] + local_action + text[end:]
 
     text = re.sub(r'\(0,\$\.jsx\)\(um,\{open:T,onClose:\(\)=>E\(!1\),onSubmit:De,.*?\}\),', '', text, count=1)
-    text = text.replace('Enviar al Cliente', 'Descargar para compartir')
+    text = text.replace('Enviar al Cliente', 'Descargar')
+    text = text.replace('Descargar para compartir', 'Descargar')
     text = text.replace('mailto:', '')
     path.write_text(text, encoding='utf-8')
 
