@@ -9,8 +9,8 @@ for path in [ROOT / 'apps/calculadora-descuentos-promociones.html', ROOT / 'calc
     text = re.sub(r'\s*<!-- SecciÃ³n Captura de Lead -->.*?</section>\s*', '\n', text, count=1, flags=re.S)
     text = re.sub(r'\s*<a[^>]+href="/admin".*?</a>\s*', '\n', text, count=1, flags=re.S)
     text = re.sub(r'\s*<script>\s*function registrarLead\(event\).*?</script>\s*', '\n', text, count=1, flags=re.S)
-    if text == original:
-        raise RuntimeError(f'No se encontraron residuos de captaciÃ³n en {path}')
+    if text != original:
+        path.write_text(text, encoding='utf-8')
     path.write_text(text, encoding='utf-8')
 
 for path in [ROOT / 'apps/js/calculadora-descuentos-promociones.js', ROOT / 'calculadora-descuentos-promociones/assets/index.js']:
@@ -27,7 +27,7 @@ for path in [ROOT / 'apps/js/calculadora-descuentos-promociones.js', ROOT / 'cal
 
     for start_marker, end_marker, label in [
         ('function Jp', 'function Yp', 'LeadForm'),
-        ('function nm', 'function rm', 'Admin'),
+        ('function Xp', 'function rm', 'Admin'),
     ]:
         if start_marker in text:
             start = text.index(start_marker)
@@ -35,6 +35,13 @@ for path in [ROOT / 'apps/js/calculadora-descuentos-promociones.js', ROOT / 'cal
             text = text[:start] + text[end:]
         elif label in text:
             raise RuntimeError(f'{label} no se pudo retirar de {path}')
+
+    backend_start = 'Up=new Hp(`https://'
+    backend_end = 'var qp='
+    if backend_start in text and backend_end in text:
+        start = text.rfind('}},', 0, text.index(backend_start)) + 2
+        end = text.index(backend_end, start)
+        text = text[:start] + text[end:]
 
     admin_start = ',(0,N.jsx)(yt,{path:`/admin`,element:'
     admin_end = ',(0,N.jsx)(yt,{path:`*`,element:'

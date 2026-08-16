@@ -8,6 +8,7 @@ for path in [ROOT / 'apps/firma-correo-html.html', ROOT / 'firma-correo-html/ind
     text = re.sub(r'<a[^>]*href="/admin"[^>]*>.*?</a>', '', text, count=1, flags=re.S)
     text = re.sub(r'\s*<script>\s*function registrarLead\(event\).*?</script>\s*', '\n', text, count=1, flags=re.S)
     text = text.replace('{"isSPA":true,"routes":["/","/admin"]}', '{"isSPA":true,"routes":["/"]}')
+    text = re.sub(r'\s*<label[^>]*>.*?<input[^>]*id="input-correo".*?</label>\s*', '\n', text, count=1, flags=re.S | re.I)
     text = text.replace('id="btn-enviar-lead"', 'id="btn-descargar-html"')
     text = re.sub(r'\n[ \t]+\n', '\n\n', text)
     path.write_text(text, encoding='utf-8')

@@ -25,7 +25,8 @@ for path in [ROOT / 'apps/js/guiones-manejo-objeciones.js', ROOT / 'guiones-mane
         text = text[:start] + text[end:]
 
     # Remove the full admin page and all its chart/editor subcomponents up to NotFound.
-    admin_start = 'function Fi({data:e})'
+    # El panel administrativo real empieza en zi; Fi es solo un subcomponente público heredado.
+    admin_start = 'function zi('
     admin_end = 'function Gi('
     if admin_start in text and admin_end in text:
         start = text.index(admin_start)
