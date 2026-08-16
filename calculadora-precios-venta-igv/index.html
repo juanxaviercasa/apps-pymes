@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Calculadora de Precios de Venta con IGV</title>
-  
+
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script>
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script>
   <script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script>
-  
+
   <script type="module" crossorigin="" src="./assets/index.js"></script>
   <link rel="stylesheet" crossorigin="" href="./assets/index.css">
-  
+
   <script>
     (() => {
       let e = new URLSearchParams(window.location.search).get("sgv");
@@ -70,10 +70,10 @@
       document.readyState === "complete" || document.readyState === "interactive" ? s() : document.addEventListener("DOMContentLoaded", s);
     })();
   </script>
-  
+
   <script type="text/javascript" charset="utf-8" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script>
   <script type="text/javascript" charset="utf-8" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script>
-  
+
   <script>(function(){var e=`sg-preview`;function t(e){"@babel/helpers - typeof";return t=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},t(e)}function n(e,n){if(t(e)!=`object`||!e)return e;var r=e[Symbol.toPrimitive];if(r!==void 0){var i=r.call(e,n||`default`);if(t(i)!=`object`)return i;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(n===`string`?String:Number)(e)}function r(e){var r=n(e,`string`);return t(r)==`symbol`?r:r+``}function i(e,t,n){return(t=r(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var a=class{constructor(e){if(i(this,`source`,void 0),i(this,`allowedOrigins`,void 0),i(this,`targetOrigin`,void 0),i(this,`debug`,void 0),i(this,`messageHandlers`,new Map),!e.allowedOrigins?.length)throw Error(`[EventCommunicator] allowedOrigins is required`);this.source=e.source,this.allowedOrigins=e.allowedOrigins,this.targetOrigin=e.targetOrigin||`*`,this.debug=e.debug||!1,e.messageHandlers&&this.registerMessageHandlers(e.messageHandlers),e.domEvents&&this.registerDOMEvents(e.domEvents),this.initMessageListener()}log(...e){this.debug&&console.log(`[EventCommunicator]`,...e)}formatEventType(t){return`${e}:${t}`}parseEventType(t){let n=`${e}:`;return t.startsWith(n)?t.slice(n.length):null}isOriginAllowed(e){return this.allowedOrigins.some(t=>t===`*`?!0:e===t||e.endsWith(t))}initMessageListener(){window.addEventListener(`message`,e=>{if(this.log(`Message received from:`,e.origin),!this.isOriginAllowed(e.origin)){console.warn(`[EventCommunicator] Wrong origin:`,e.origin);return}let t=e.data;if(!t?.type)return;let n=this.parseEventType(t.type);if(!n)return;this.log(`Parsed event type:`,n);let r=this.messageHandlers.get(n);r?r(t.payload):this.log(`No handler for:`,n)})}registerMessageHandlers(e){Object.entries(e).forEach(([e,t])=>{this.messageHandlers.set(e,t)})}registerDOMEvents(e){e.forEach(({event:e,handler:t,options:n})=>{window.addEventListener(e,t,n)})}getTargetWindow(){try{if(window.parent&&window.parent!==window)return window.parent;if(window.top&&window.top!==window)return window.top;if(window.opener)return window.opener}catch{if(window.parent&&window.parent!==window)return window.parent}return null}send(e,t){let n=this.getTargetWindow();if(!n)return;let r={type:this.formatEventType(e),source:this.source,payload:t??null,timestamp:new Date().toISOString()};n.postMessage(r,this.targetOrigin)}},o=`visual-editor`,s={ACTIVATE_INSPECTOR:`ACTIVATE_INSPECTOR`,DEACTIVATE_INSPECTOR:`DEACTIVATE_INSPECTOR`,MAKE_EDITABLE:`MAKE_EDITABLE`,APPLY_STYLE:`APPLY_STYLE`,CHANGE_TEXT_TYPE:`CHANGE_TEXT_TYPE`,ADD_LINK:`ADD_LINK`,INSERT_EMOJI:`INSERT_EMOJI`,CHANGE_IMAGE_SRC:`CHANGE_IMAGE_SRC`,SET_ALT_TEXT:`SET_ALT_TEXT`,SHOW_IMAGE_LOADING:`SHOW_IMAGE_LOADING`,HIDE_IMAGE_LOADING:`HIDE_IMAGE_LOADING`,TOGGLE_DEBUG:`TOGGLE_DEBUG`,CLEAR_SELECTION:`CLEAR_SELECTION`,UNDO:`UNDO`,REDO:`REDO`},c={ELEMENT_SELECTED:`ELEMENT_SELECTED`,ELEMENT_RECT_UPDATED:`ELEMENT_RECT_UPDATED`,SELECTION_CLEARED:`SELECTION_CLEARED`,CONTENT_CHANGED:`CONTENT_CHANGED`,STYLE_APPLIED:`STYLE_APPLIED`,TEXT_TYPE_CHANGE_REQUESTED:`TEXT_TYPE_CHANGE_REQUESTED`,LINK_CHANGE_REQUESTED:`LINK_CHANGE_REQUESTED`,EMOJI_INSERTED:`EMOJI_INSERTED`,IMAGE_SRC_CHANGED:`IMAGE_SRC_CHANGED`,ALT_TEXT_SET:`ALT_TEXT_SET`,EDITING_TEXT:`EDITING_TEXT`,HISTORY_STATE_CHANGED:`HISTORY_STATE_CHANGED`},l={LOC:`data-visual-edit-loc`,COMPONENT:`data-visual-edit-component`,EDITABLE:`data-visual-edit-editable`,OVERLAY:`data-visual-edit-overlay`,LABEL:`data-visual-edit-label`,LABEL_POSITION:`data-visual-edit-label-position`,DIMENSIONS:`data-visual-edit-dimensions`},u={BOLD:`bold`,ITALIC:`italic`,UNDERLINE:`underline`,LINE_THROUGH:`line-through`,COLOR:`color`,BACKGROUND_COLOR:`backgroundColor`,TEXT_ALIGN:`textAlign`,FONT_SIZE:`fontSize`},d={HOVER:`hover`,SELECTED:`selected`,LOADING:`loading`},f={SPAN:`span`,IMG:`img`,BUTTON:`button`,A:`a`},ee=[`h1`,`h2`,`h3`,`h4`,`h5`,`h6`,`p`,f.SPAN,`label`,`b`,`i`,`strong`,`em`,`small`,`mark`,`del`,`ins`,`sub`,`sup`,`div`,`li`,`dt`,`dd`],p=!1,m=`%c[Visual Editor]`,h=`color: #7c3aed; font-weight: bold;`,g={CONTENT_CHANGED:`âœï¸`,EMOJI_INSERTED:`ðŸ˜€`,STYLE_APPLIED:`ðŸŽ¨`,TEXT_TYPE_CHANGE_REQUESTED:`ðŸ”¤`,LINK_CHANGE_REQUESTED:`ðŸ”—`,IMAGE_SRC_CHANGED:`ðŸ–¼ï¸`,ALT_TEXT_SET:`ðŸ·ï¸`},_={CONTENT_CHANGED:`#059669`,EMOJI_INSERTED:`#d97706`,STYLE_APPLIED:`#2563eb`,TEXT_TYPE_CHANGE_REQUESTED:`#7c3aed`,LINK_CHANGE_REQUESTED:`#0891b2`,IMAGE_SRC_CHANGED:`#be185d`,ALT_TEXT_SET:`#be185d`},v=(e,t)=>{switch(e){case`STYLE_APPLIED`:{let e=t.style||t.after,n=t.before,r=t.after;return e===`fontSize`||t.fontSize?`fontSize: ${n} â†’ ${r} (preview: inline style)`:`${e}: ${n} â†’ ${r}`}case`TEXT_TYPE_CHANGE_REQUESTED`:{let e=t[`tag before`],n=t[`tag after`],r=t.fontSize,i=`<${e}> â†’ <${n}>`;return r?`${i} (preview: inline ${r})`:i}case`CONTENT_CHANGED`:return`"${String(t.after||``).slice(0,40)}"`;case`EMOJI_INSERTED`:return`${t.emoji} added`;default:return Object.entries(t).slice(0,2).map(([e,t])=>`${e}: ${t}`).join(`, `)}},y=()=>{p=!p,console.log(m+(p?` %cðŸŸ¢ Debug mode ENABLED`:` %cðŸ”´ Debug mode DISABLED`),h,`color: ${p?`#16a34a`:`#dc2626`}; font-weight: bold;`)},b=(e,t,n,r)=>{if(!p)return;let i=_[e]??`#6b7280`,a=g[e]??`ðŸ“`,o=n.tagName.toLowerCase(),s=v(e,r);console.groupCollapsed(`${m} %c${a} PREVIEW ${e}%c  <${o}>  %c${s}`,h,`color: ${i}; font-weight: bold;`,`color: #6b7280; font-weight: normal;`,`color: #0891b2; font-weight: normal;`),console.log(`%cLocation`,`font-weight: bold;`,t),console.log(`%cElement`,`font-weight: bold;`,`<${o}>`,n.className?`class="${n.className}"`:`(no class)`),console.log(`%cDetails`,`font-weight: bold;`,r),console.groupEnd()},x=e=>{let t=document.createElement(`div`);return t.innerHTML=`
     <svg xmlns="http://www.w3.org/2000/svg" class="sg-icon-loader-circular" viewBox="25 25 50 50" style="width: ${e}px; height: ${e}px;">
       <circle class="sg-icon-loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/>
@@ -133,7 +133,7 @@
   <div id="root">
     <main class="min-h-screen bg-navy-950 px-5 py-10 sm:px-8 sm:py-14" data-visual-edit-loc="src/pages/Calculator.tsx:70:4" data-visual-edit-component="main" data-visual-edit-editable="false">
       <div class="mx-auto max-w-6xl" data-visual-edit-loc="src/pages/Calculator.tsx:71:6" data-visual-edit-component="div" data-visual-edit-editable="false">
-        
+
         <!-- Header -->
         <header class="animate-rise flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center" data-visual-edit-loc="src/pages/Calculator.tsx:72:8" data-visual-edit-component="header" data-visual-edit-editable="false">
           <div data-visual-edit-loc="src/pages/Calculator.tsx:73:10" data-visual-edit-component="div" data-visual-edit-editable="false">
@@ -217,11 +217,11 @@
 
         <div class="mt-8" data-visual-edit-loc="src/pages/Calculator.tsx:125:8" data-visual-edit-component="div" data-visual-edit-editable="false">
           <div class="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]" data-visual-edit-loc="src/pages/sections/ForwardCalculator.tsx:76:4" data-visual-edit-component="div" data-visual-edit-editable="false">
-            
+
             <!-- Column 1: Product Data -->
             <section class="animate-rise rounded-xl2 border border-line bg-navy-900 p-6 sm:p-7" data-visual-edit-loc="src/pages/sections/ForwardCalculator.tsx:77:6" data-visual-edit-component="section" data-visual-edit-editable="false">
               <h2 class="mb-6 font-display text-lg font-semibold text-ink" data-visual-edit-loc="src/pages/sections/ForwardCalculator.tsx:78:8" data-visual-edit-component="h2" data-visual-edit-editable="true">Datos del producto</h2>
-              
+
               <div class="space-y-5" data-visual-edit-loc="src/pages/sections/ForwardCalculator.tsx:81:8" data-visual-edit-component="div" data-visual-edit-editable="false">
                 <!-- Cost Field -->
                 <div data-visual-edit-loc="src/components/NumberField.tsx:29:4" data-visual-edit-component="div" data-visual-edit-editable="false">
@@ -240,7 +240,7 @@
                   </div>
                   <p class="mt-1.5 text-xs text-ink-faint" data-visual-edit-loc="src/components/NumberField.tsx:68:8" data-visual-edit-component="p" data-visual-edit-editable="false">Lo que te cuesta adquirir o producir.</p>
                 </div>
-                
+
                 <!-- Margin Field -->
                 <div data-visual-edit-loc="src/components/NumberField.tsx:29:4" data-visual-edit-component="div" data-visual-edit-editable="false">
                   <label for="margin" class="flex items-center gap-2 text-sm font-medium text-brand-300" data-visual-edit-loc="src/components/NumberField.tsx:30:6" data-visual-edit-component="label" data-visual-edit-editable="false">
@@ -284,7 +284,7 @@
 
             <!-- Column 2: Results & Lead Capture -->
             <section class="space-y-5" data-visual-edit-loc="src/pages/sections/ForwardCalculator.tsx:95:6" data-visual-edit-component="section" data-visual-edit-editable="false">
-              
+
               <div class="rounded-xl2 border-2 border-accent-500 bg-navy-900 p-6" data-visual-edit-loc="src/components/ResultCard.tsx:20:6" data-visual-edit-component="div" data-visual-edit-editable="false">
                 <div class="flex items-center gap-2 text-accent-400" data-visual-edit-loc="src/components/ResultCard.tsx:21:8" data-visual-edit-component="div" data-visual-edit-editable="false">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag h-5 w-5" data-visual-edit-loc="src/components/ResultCard.tsx:22:10" data-visual-edit-component="Icon" data-visual-edit-editable="false">
@@ -343,36 +343,10 @@
                 </button>
               </div>
 
-              <!-- Formulario de Captura de Leads (Modificado) -->
-              <div class="rounded-xl2 border border-line bg-navy-900 p-6 sm:p-8" data-visual-edit-loc="src/components/LeadCapture.tsx:66:4" data-visual-edit-component="div" data-visual-edit-editable="false">
-                <div class="flex items-center gap-3" data-visual-edit-loc="src/components/LeadCapture.tsx:67:6" data-visual-edit-component="div" data-visual-edit-editable="false">
-                  <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-500/15 text-brand-300" data-visual-edit-loc="src/components/LeadCapture.tsx:68:8" data-visual-edit-component="div" data-visual-edit-editable="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5" data-visual-edit-loc="src/components/LeadCapture.tsx:69:10" data-visual-edit-component="Mail" data-visual-edit-editable="false">
-                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
-                  </div>
-                  <div data-visual-edit-loc="src/components/LeadCapture.tsx:71:8" data-visual-edit-component="div" data-visual-edit-editable="false">
-                    <h3 class="font-display text-lg font-semibold text-ink" data-visual-edit-loc="src/components/LeadCapture.tsx:72:10" data-visual-edit-component="h3" data-visual-edit-editable="true">Recibe estos cÃ¡lculos en tu correo</h3>
-                    <p class="text-sm text-ink-faint" data-visual-edit-loc="src/components/LeadCapture.tsx:75:10" data-visual-edit-component="p" data-visual-edit-editable="true">Te enviamos el desglose completo del precio de venta.</p>
-                  </div>
-                </div>
-                <form class="mt-6 grid gap-3 sm:grid-cols-[1fr_1fr_auto]" data-visual-edit-loc="src/components/LeadCapture.tsx:89:8" data-visual-edit-component="form" data-visual-edit-editable="false">
-                  <input placeholder="Tu nombre" class="rounded-xl border border-line bg-navy-950 px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint/60 focus:border-brand-500" data-visual-edit-loc="src/components/LeadCapture.tsx:90:10" data-visual-edit-component="input" data-visual-edit-editable="false" type="text" value="">
-                  <input id="input-correo" required="" placeholder="tu@correo.com" class="rounded-xl border border-line bg-navy-950 px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint/60 focus:border-brand-500" data-visual-edit-loc="src/components/LeadCapture.tsx:97:10" data-visual-edit-component="input" data-visual-edit-editable="false" type="email" value="">
-                  <button id="btn-enviar-lead" type="submit" class="flex items-center justify-center gap-2 rounded-xl bg-accent-500 px-5 py-3 text-sm font-semibold text-navy-950 transition-all hover:bg-accent-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 disabled:opacity-60" data-visual-edit-loc="src/components/LeadCapture.tsx:105:10" data-visual-edit-component="button" data-visual-edit-editable="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-4 w-4" data-visual-edit-loc="src/components/LeadCapture.tsx:113:14" data-visual-edit-component="Send" data-visual-edit-editable="false">
-                      <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
-                      <path d="m21.854 2.147-10.94 10.939"></path>
-                    </svg>
-                    Enviar
-                  </button>
-                </form>
-              </div>
-            </section>
+
           </div>
         </div>
-        
+
         <!-- Footer -->
         <footer class="mt-12 text-center text-xs text-ink-faint" data-visual-edit-loc="src/pages/Calculator.tsx:151:8" data-visual-edit-component="footer" data-visual-edit-editable="true">
           Todos los cÃ¡lculos se actualizan en tiempo real. El historial se guarda en este navegador.
@@ -380,51 +354,6 @@
       </main>
     </div>
   </div>
-
-  <!-- Script Funcionalidad Captura de Leads -->
-  <script>
-    function registrarLead(event) {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('input-correo');
-      if (!emailInput) return;
-      
-      const email = emailInput.value;
-      if (!email) return;
-
-      // Reemplaza esta URL con la URL final de tu Web App de Google Apps Script
-      const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI';
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-      })
-      .then(() => {
-        console.log('Lead registrado con Ã©xito.');
-        // Puedes agregar lÃ³gica aquÃ­ para limpiar el campo o mostrar una alerta
-      })
-      .catch(error => {
-        console.error('Error al registrar el lead:', error);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnEnviar = document.getElementById('btn-enviar-lead');
-      if (btnEnviar) {
-        const leadForm = btnEnviar.closest('form');
-        if (leadForm) {
-          leadForm.addEventListener('submit', registrarLead);
-        } else {
-          // En caso de que el botÃ³n no estÃ© dentro del formulario por algÃºn motivo
-          btnEnviar.addEventListener('click', registrarLead);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
 

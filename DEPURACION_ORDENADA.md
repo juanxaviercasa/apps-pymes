@@ -43,3 +43,11 @@ Se conservaron la calculadora de peso cobrable, zonas y paradas, cotización, hi
 En el bundle se eliminó la lógica de captación y se dejó el flujo principal sin dependencia de correo ni proveedor externo. Las dos copias de la aplicación pasan `node --check` y no quedan referencias a `LeadForm`, `lead-form`, `registrarLeadFlete`, `TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI`, `REEMPLAZA_CON_TU_ID`, `script.google.com/macros` ni `Solicitar proveedor logístico`.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 05 — Calculadora de Precios de Venta con IGV
+
+Se conservaron las calculadoras de precio de venta, margen, impuesto/IGV, escenarios forward, actualización en tiempo real, historial local y descarga de PDF. Se eliminó el bloque `LeadCapture`, incluidos los campos de nombre y correo, el envío a Google Apps Script y el mensaje que prometía enviar el desglose por correo.
+
+El montaje visible de `LeadCapture` fue retirado del flujo de resultados y los bundles pasan `node --check`. La comprobación no encuentra referencias a `LeadCapture`, `input-correo`, `registrarLead`, `TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI`, `script.google.com/macros`, `btn-enviar-lead` ni el texto de captación.
+
+Estado: **depurada y validada estructuralmente**.
