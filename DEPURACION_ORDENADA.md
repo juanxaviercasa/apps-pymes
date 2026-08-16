@@ -83,3 +83,11 @@ Se conservaron el constructor UTM, fuentes y medios, simulador ROI, heatmap, enl
 Los dos bundles pasan `node --check` y no quedan referencias a correo, captación, LeadModal, captcha, endpoints externos ni formularios de suscripción.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 10 — Conversor y Optimizador de Imágenes
+
+Se conservaron la conversión local mediante Canvas, optimización, procesamiento por lotes, descarga ZIP, formato WebP, calidad, redimensionado y marca de agua. Se retiraron la sección de curso WPO, el formulario HTML de correo, el script de Google Apps Script, el componente `LeadCapture`/`Rr`, el módulo captcha/contacto y los endpoints `/sgcaptcha/*`. También se eliminó el ancla de upsell del encabezado.
+
+Los dos bundles pasan `node --check` y no quedan referencias a captación, curso, captcha, correo ni endpoints externos.
+
+Estado: **depurada y validada estructuralmente**.
