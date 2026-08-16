@@ -14,7 +14,7 @@
 <body>
   <div id="root">
     <div class="min-h-screen">
-      
+
       <!-- Lead Capture Modal -->
       <!-- Nota: Puedes controlar su visibilidad con JavaScript añadiendo/quitar la clase 'hidden' -->
       <div class="fixed inset-0 z-50 flex items-center justify-center p-4" id="lead-modal">
@@ -40,15 +40,9 @@
             <p class="mt-2 text-sm leading-relaxed text-blue-300/70">
               Buenas prácticas de contraseñas, gestión de accesos y protección de tu equipo. Sin coste.
             </p>
-            
-            <form id="lead-form" class="mt-6 space-y-3">
-              <input id="email" required="" placeholder="tu@empresa.com" type="email" class="w-full rounded-xl border border-navy-800 bg-navy-950 px-4 py-3 text-sm text-blue-100 placeholder:text-blue-300/30 focus:border-blue-500">
-              <input id="company" placeholder="Nombre de tu empresa (opcional)" type="text" class="w-full rounded-xl border border-navy-800 bg-navy-950 px-4 py-3 text-sm text-blue-100 placeholder:text-blue-300/30 focus:border-blue-500">
-              <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-bold text-navy-950 transition-all hover:bg-orange-400 disabled:opacity-60">
-                Quiero mi guía gratuita
-              </button>
-            </form>
-            
+
+
+
             <button class="mt-4 w-full text-center text-xs text-blue-300/40 transition-colors hover:text-blue-300/70">
               Ahora no, ir al generador
             </button>
@@ -58,7 +52,7 @@
 
       <!-- Contenido Principal -->
       <div class="relative mx-auto max-w-5xl px-5 py-10 sm:py-14">
-        
+
         <header class="mb-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-3">
             <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/15 ring-1 ring-blue-500/30">
@@ -391,17 +385,17 @@
 
   <!-- SCRIPT DE CAPTURA DE LEADS (GUÍA DE CIBERSEGURIDAD) -->
   <script>
-    function registrarLeadSecuKey(event) {
+    function SecuKey(event) {
       event.preventDefault();
-      
+
       const emailInput = document.getElementById('email');
       const companyInput = document.getElementById('company');
-      
+
       if (!emailInput) return;
-      
+
       const email = emailInput.value;
       const company = companyInput ? companyInput.value : '';
-      
+
       if (!email) {
         console.warn('El correo es obligatorio.');
         return;
@@ -427,7 +421,7 @@
       .then(() => {
         console.log('Lead de SecuKey registrado con éxito.');
         event.target.reset();
-        
+
         // Opcional: ocultar el modal automáticamente al tener éxito
         const modal = document.getElementById('lead-modal');
         if(modal) modal.classList.add('hidden');
@@ -440,13 +434,13 @@
     document.addEventListener('DOMContentLoaded', () => {
       const leadForm = document.getElementById('lead-form');
       if (leadForm) {
-        leadForm.addEventListener('submit', registrarLeadSecuKey);
+        leadForm.addEventListener('submit', SecuKey);
       }
-      
+
       // Control básico para el botón de "Ahora no, ir al generador"
       const closeButtons = document.querySelectorAll('button[aria-label="Cerrar"], button:contains("Ahora no")');
       const modal = document.getElementById('lead-modal');
-      
+
       closeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           if(modal) modal.classList.add('hidden');
