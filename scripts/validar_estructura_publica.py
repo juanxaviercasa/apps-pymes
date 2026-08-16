@@ -37,6 +37,9 @@ for path in html_paths:
 for path in html_paths:
     text = path.read_text(encoding='utf-8', errors='replace')
     name = path.stem
+    title = re.search(r'<title>(.*?)</title>', text, re.S)
+    if not title or any(token in title.group(1) for token in ('Ã', 'Â', 'â', 'ð', '�')):
+        errors.append(f'{path.name} tiene un título ausente o con codificación dañada.')
     expected = (f'./css/{name}.css', f'./js/{name}.js', './assets/favicon.png')
     for ref in expected:
         if ref not in text:
@@ -45,6 +48,12 @@ for path in html_paths:
         target = ROOT / ref[2:]
         if not target.is_file():
             errors.append(f'{path.name} apunta a recurso inexistente: {ref}.')
+    bundle_path = ROOT / 'js' / f'{name}.js'
+    bundle_text = bundle_path.read_text(encoding='utf-8', errors='replace') if bundle_path.is_file() else ''
+    root_match = re.search(r'\.jsx\)\([^,]+,\{path:`/`,element:\(0,[^)]*\.jsx\)\(([^,]+),', bundle_text)
+    wildcard_match = re.search(r'\.jsx\)\([^,]+,\{path:`\*`,element:\(0,[^)]*\.jsx\)\(([^,]+),', bundle_text)
+    if not root_match or not wildcard_match or root_match.group(1) != wildcard_match.group(1):
+        errors.append(f'{name}.js no tiene ruta wildcard standalone apuntando al componente principal.')
 
 bundle = (ROOT / 'js/index.js').read_text(encoding='utf-8', errors='replace')
 for path in html_paths:

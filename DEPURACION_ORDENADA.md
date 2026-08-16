@@ -200,3 +200,10 @@ La publicación se reorganizó para eliminar la ambigüedad de rutas de GitHub P
 Cada aplicación referencia sus recursos mediante rutas relativas desde la raíz (`./css/`, `./js/` y `./assets/`). El índice raíz enlaza directamente a `./<aplicacion>.html`, y el workflow de GitHub Pages publica la raíz del repositorio desde `main`.
 La estructura fue comprobada con `scripts/validar_estructura_publica.py` y `scripts/validacion_global.py`: `ROOT_INDEX=1`, `HTML_APPS_ROOT=22`, `CSS_FILES=23`, `JS_APP_BUNDLES=22`, `STRUCTURE_ERRORS=0`, `SYNTAX_FAILURES=0`, `BUNDLE_RESIDUE_TOTAL=0` y `HTML_RESIDUE_TOTAL=0`. Además, la verificación HTTP local confirmó respuesta 200 para la portada y las 22 aplicaciones.
 Los scripts reproducibles de depuración fueron actualizados para trabajar con los HTML de la raíz y los bundles de `js/`, sin depender de las carpetas individuales heredadas.
+
+## Corrección final de publicación y navegación
+Se reparó la codificación doble de los textos y títulos de las 22 aplicaciones para que las tildes, la eñe, los guiones tipográficos y otros caracteres Unicode se sirvan correctamente como UTF-8. La validación no detecta secuencias mojibake en los títulos.
+
+También se ajustaron los 23 bundles con `BrowserRouter`: la ruta wildcard de cada aplicación ahora renderiza el componente principal en lugar de la pantalla `NotFound`. De este modo, una entrada directa o una recarga sobre `/<aplicacion>.html` conserva la página publicada y no intenta resolver una ruta SPA inexistente en GitHub Pages.
+
+La comprobación final confirma `ROOT_INDEX=1`, `HTML_APPS_ROOT=22`, `STRUCTURE_ERRORS=0`, `SYNTAX_FAILURES=0`, `BUNDLE_RESIDUE_TOTAL=0` y `HTML_RESIDUE_TOTAL=0`.
