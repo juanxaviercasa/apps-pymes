@@ -1,0 +1,17 @@
+Encontré la causa real de por qué sigue sin funcionar, y es más profunda que el tema de los slugs.
+
+Cada archivo de herramienta (por ejemplo calculadora-descuentos-promociones.html) carga su propio script independiente en /js/calculadora-descuentos-promociones.js. Ese script usa React Router con <BrowserRouter> sin basename, y define solo estas rutas:
+
+path: "/"       -> Home (el contenido real de la calculadora)
+path: "/admin"  -> Admin
+path: "*"       -> NotFound (la página 404 que ves)
+
+El problema es que React Router compara la ruta contra la URL completa del navegador. Como el archivo se sirve en /calculadora-descuentos-promociones.html (no en /), ninguna ruta coincide excepto el comodín *, y por eso siempre muestra "404 - Página no encontrada", sin importar que el archivo físico exista y cargue correctamente (por eso el fetch devolvía 200, pero el contenido renderizado es el de error).
+
+Esto significa que cada herramienta fue construida asumiendo que se desplegaría como la página raíz de su propio dominio o subdominio (ej. calculadora-descuentos-promociones.tudominio.com/), no como un archivo secundario dentro de un dominio compartido con un portal.
+
+Esto ya no es un simple error de ruta/typo que se pueda arreglar con un buscar-y-reemplazar seguro en el archivo minificado ya subido: requiere corregir la configuración del enrutador (agregar un basename correcto o quitar el enrutador para páginas que no lo necesitan) en el código fuente de cada una de las 22 herramientas, y volver a compilar y subir los builds.
+
+Mi recomendación: corregir esto en el proyecto fuente (agregar basename al BrowserRouter de cada app, o si esas páginas no usan realmente la ruta /admin, quitar el router client-side para esas páginas) y volver a desplegar. Intentar parchear esto directamente en los 22 archivos .js minificados ya subidos es arriesgado, ya que un solo carácter mal editado puede romper la página, y no tengo certeza de que todos los 22 archivos compartan exactamente la misma estructura minificada.
+
+¿Quieres que igual intente el parche directo en este archivo (calculadora-descuentos-promociones.js) como prueba de concepto para confirmar que funciona, antes de decidir si vale la pena repetirlo en los otros 21?
