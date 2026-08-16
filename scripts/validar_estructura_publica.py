@@ -3,7 +3,7 @@ import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-html_paths = sorted(path for path in ROOT.glob('*.html') if path.name != 'index.html')
+html_paths = sorted(path for path in ROOT.glob('*.html') if path.name not in {'index.html', 'guia-uso-22-apps.html'})
 js_files = sorted((ROOT / 'js').glob('*.js'))
 app_js_files = [path for path in js_files if path.name != 'index.js']
 css_files = sorted((ROOT / 'css').glob('*.css'))
@@ -27,7 +27,7 @@ root_text = (ROOT / 'index.html').read_text(encoding='utf-8', errors='replace')
 for ref in ('./css/index.css', './js/index.js', './assets/favicon.png'):
     if ref not in root_text:
         errors.append(f'El índice no referencia {ref}.')
-root_links = set(re.findall(r'href="(\./[^"?]+\.html)"', root_text))
+root_links = {ref for ref in re.findall(r'href="(\./[^"?]+\.html)"', root_text) if ref != './guia-uso-22-apps.html'}
 if len(root_links) != 22:
     errors.append(f'El índice raíz debe contener 22 enlaces de aplicaciones y contiene {len(root_links)}.')
 for path in html_paths:
