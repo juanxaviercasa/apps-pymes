@@ -51,3 +51,11 @@ Se conservaron las calculadoras de precio de venta, margen, impuesto/IGV, escena
 El montaje visible de `LeadCapture` fue retirado del flujo de resultados y los bundles pasan `node --check`. La comprobación no encuentra referencias a `LeadCapture`, `input-correo`, `registrarLead`, `TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI`, `script.google.com/macros`, `btn-enviar-lead` ni el texto de captación.
 
 Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 06 — Calculadora de Préstamos y Amortizaciones
+
+Se conservaron el cálculo de cuota, tabla de amortización, abonos extraordinarios a capital, historial local y comparador de escenarios A/B. Se retiró el flujo `LeadModal` de correo y exportación condicionada, junto con `AdminPanel` y el botón de administración. El footer administrativo queda oculto y con handler desactivado en el bundle para no mostrar controles internos en la versión pública.
+
+Los dos bundles pasan `node --check` y la comprobación no encuentra referencias a `LeadModal`, `AdminPanel`, `Panel de administración`, `script.google.com`, `input-correo` ni `registrarLead`.
+
+Estado: **depurada y validada estructuralmente**.
