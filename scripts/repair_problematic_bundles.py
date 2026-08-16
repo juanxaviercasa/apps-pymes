@@ -94,10 +94,10 @@ if "Ir=({items:" not in flete:
         raise RuntimeError("El panel de historial contiene residuos prohibidos")
     flete_path.write_text(flete.replace("var Yr=[", component + ";var Yr=[", 1), encoding="utf-8")
 
-# Paletas: restaurar la tabla de etiquetas que usa el panel de accesibilidad.
+# Paletas: el bundle vanilla estable ya incluye su propio panel local.
 palette_path = ROOT / "js/generador-paletas-corporativas.js"
 palette = palette_path.read_text(encoding="utf-8")
-if 'var vp={normal:' not in palette:
+if "np-palette-app" not in palette and 'var vp={normal:' not in palette:
     palette = palette.replace(
         "function kp(",
         'var vp={normal:"visión normal",deuteranopia:"deuteranopía",protanopia:"protanopía",tritanopia:"tritanopía"};function kp(',

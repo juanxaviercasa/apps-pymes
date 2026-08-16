@@ -5,8 +5,8 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 html_paths = sorted(path for path in ROOT.glob('*.html') if path.name not in {'index.html', 'guia-uso-22-apps.html'})
 js_files = sorted((ROOT / 'js').glob('*.js'))
-app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js', 'op-runtime.js', 'datos-compartidos.js'}]
-css_files = sorted((ROOT / 'css').glob('*.css'))
+app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js', 'op-runtime.js', 'datos-compartidos.js', 'np-theme.js'}]
+css_files = sorted(path for path in (ROOT / 'css').glob('*.css') if path.name != 'np-brand.css')
 errors = []
 
 if not (ROOT / 'index.html').is_file():
@@ -58,6 +58,10 @@ for path in html_paths:
     if name == 'auditor-seo-basico' and 'var ki={"title-len"' not in bundle_text:
         errors.append('auditor-seo-basico.js no contiene la tabla legítima de mensajes ki.')
     if name in operational:
+        continue
+    if name == 'generador-paletas-corporativas':
+        if 'np-palette-app' not in bundle_text or 'getElementById(\'root\')' not in bundle_text and 'getElementById("root")' not in bundle_text:
+            errors.append('generador-paletas-corporativas.js no contiene el montaje vanilla local esperado.')
         continue
     route_prefix = r'\.jsx\)\([^,]+,\{path:'
     route_component = r'element:\(0,[^)]*\.jsx\)\(([^,]+),'
