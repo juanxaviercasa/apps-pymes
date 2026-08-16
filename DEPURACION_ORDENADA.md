@@ -94,12 +94,102 @@ Estado: **depurada y validada estructuralmente**.
 
 ## Aplicación 11 — Creador de Facturas Proforma
 
-Se conservaron el campo de correo del cliente como dato operativo, la validación de la proforma, el modal funcional de confirmación, el envío local mediante `mailto:`, la descarga PDF, el historial, respaldo/importación y el cálculo del documento. Se retiraron el script HTML duplicado de captación, la persistencia de leads en `vc859342100467.coderick.net`, la notificación por captcha en `/sgcaptcha/*` y la etiqueta residual `LeadModal` del metadato visual. No se eliminó el correo del cliente porque sí se utiliza para el envío local de la proforma.
+Se conservaron el cálculo de la proforma, la validación del documento, la descarga PDF, el historial y el respaldo/importación local. Se retiraron el correo del cliente, el `mailto:`, el script HTML duplicado de captación, la persistencia de leads en `vc859342100467.coderick.net`, la notificación por captcha en `/sgcaptcha/*` y la etiqueta residual `LeadModal` del metadato visual. El botón público quedó reducido a **Descargar**, sin dependencia de correo ni de servicios externos.
 
-Los dos bundles pasan `node --check`; no quedan referencias al backend de leads, captcha, `coderick.net` ni URLs de captación, mientras siguen presentes `mailto:`, `Descargar PDF` y `Enviar al Cliente`.
+Los dos bundles pasan `node --check` y no quedan referencias al backend de leads, captcha, `coderick.net`, `mailto:` ni URLs de captación.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 12 — Firma de Correo HTML
+
+Se conservó la creación local de firmas HTML, la personalización de datos y estilos, la vista previa y la copia/descarga del resultado. Se eliminaron el campo `input-correo`, los modales de captación, el envío externo y los elementos de previsualización administrativa de las páginas y bundles correspondientes.
+
+Los bundles pasan `node --check` y la validación global no detecta campos de correo, formularios de leads, endpoints externos ni modales de captación.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 13 — Generador de Códigos QR
+
+Se mantuvo la generación local de códigos QR y sus opciones de contenido y descarga. Se retiró la declaración de endpoint externo que no era necesaria para el flujo público y se conservaron únicamente las operaciones locales del generador.
+
+Los bundles pasan `node --check` y no quedan residuos de captación, endpoints remotos ni rutas administrativas.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 14 — Generador de Contraseñas para Pymes
+
+Se conservó la generación local de contraseñas, sus parámetros de longitud y complejidad, y las acciones de copia y uso inmediato. Se eliminó el modal de captación, la validación de correo y el captcha, junto con los elementos HTML que condicionaban el acceso a la herramienta.
+
+Los bundles pasan `node --check` y no quedan referencias a `LeadModal`, `input-correo`, captcha, formularios de leads ni endpoints externos.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 15 — Generador de Contratos de Servicios
+
+Se conservó el generador local de contratos, la edición de los datos del documento, la vista previa y la descarga del resultado. Se eliminó el flujo de bienvenida/captación y cualquier bloqueo que no formara parte de la generación del contrato.
+
+Los bundles pasan `node --check` y la comprobación global confirma que la aplicación funciona sin captación de correo, paywall, panel administrativo ni endpoint externo de leads.
 
 Estado: **depurada y validada estructuralmente**.
 
 ## Aplicación 16 — Generador de Cotizaciones
-La auditoría estructural confirmó que esta aplicación no contiene `LeadModal`, `EmailGate`, formularios de captación, endpoints externos de leads ni rutas administrativas. El correo del cliente se conserva porque alimenta el enlace operativo `mailto:` para enviar la cotización, junto con la generación, descarga, historial y redescarga del documento. Ambos bundles pasan `node --check`; no fue necesario modificar el código de la aplicación.
+
+La auditoría estructural confirmó que esta aplicación no contiene `LeadModal`, `EmailGate`, formularios de captación, endpoints externos de leads ni rutas administrativas. Se conserva el correo del cliente únicamente como dato operativo para el enlace local `mailto:` de la cotización, junto con la generación, descarga, historial y redescarga del documento. Ambos bundles pasan `node --check`.
+
 Estado: **auditada y limpia**.
+
+## Aplicación 17 — Generador de Paletas Corporativas
+
+Se conservaron la creación de paletas, la selección de colores, la previsualización y la copia/descarga de los resultados. Se retiró el endpoint remoto heredado que no era requerido por el generador local y se mantuvo la lógica pública sin dependencia de red.
+
+Los bundles pasan `node --check` y no quedan residuos de captación, URLs externas prohibidas ni componentes administrativos.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 18 — Generador de Políticas de Devolución
+
+Se conservaron la configuración local de la política, la generación del texto y las acciones de copia/descarga. Se eliminaron el campo de correo, el cliente remoto de `coderick.net`, el formulario de captación y los elementos HTML asociados a la entrega por correo.
+
+Los bundles pasan `node --check` y no quedan referencias a `input-correo`, `coderick.net`, formularios de leads, captcha ni rutas administrativas.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 19 — LegalForge: Generador de Políticas y Términos
+
+Se conservaron la selección y edición local de documentos legales, la generación del contenido y la descarga. Se eliminó el campo `input-correo` y el flujo de captación que condicionaba la entrega del resultado, dejando la herramienta disponible de forma directa y local.
+
+Los bundles pasan `node --check` y la validación global confirma la ausencia de campos de correo, formularios de captación, paywalls, endpoints externos y paneles administrativos.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 20 — Guiones para Manejo de Objeciones
+
+Se liberó el catálogo público de guiones sin paywall ni modal de desbloqueo. Se conservaron las contribuciones y el modo zen, y se reemplazaron los servicios remotos de tracking/moderación por operaciones locales sin red. Como corrección final se eliminó estructuralmente la ruta duplicada `/` que montaba el componente Admin `zi`, así como el componente administrativo completo.
+
+Los dos bundles pasan `node --check`; las rutas públicas quedan limitadas a `/` y `*`, y no quedan referencias a `LeadModal`, captcha, `coderick.net`, `/admin` ni componentes administrativos.
+
+Estado: **depurada, liberada y validada estructuralmente**.
+
+## Aplicación 21 — Organizador de Matriz de Contenidos
+
+Se conservaron la organización local de la matriz, la edición de elementos, las vistas de trabajo y la persistencia en el navegador. Se retiraron los bloqueos y residuos administrativos o de captación que no eran necesarios para gestionar la matriz.
+
+Los bundles pasan `node --check` y la validación global no detecta captación de correo, paywalls, endpoints externos ni paneles administrativos.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Aplicación 22 — Simulador TCO: Físico vs. Nube
+
+Se conservó el simulador local de costo total de propiedad, con sus escenarios, cálculos comparativos y resultados para infraestructura física y nube. Se retiraron la captura de leads, el bloqueo de acceso, los elementos de administración y las dependencias externas de la versión publicada.
+
+Los bundles pasan `node --check` y la comprobación global confirma que el simulador funciona sin correo, paywall, panel administrativo ni endpoint externo.
+
+Estado: **depurada y validada estructuralmente**.
+
+## Cierre del proyecto
+
+Las 22 aplicaciones de la rama `ordered-cleanup` fueron auditadas y depuradas de forma ordenada. Se preservaron las funciones legítimas de cada herramienta —cálculos, generación de documentos, vistas previas, descargas, historial y persistencia local cuando correspondía— y se eliminaron estructuralmente los flujos de captación, bloqueos, paywalls, paneles administrativos y endpoints externos identificados.
+
+La validación final ejecutada con `python3 scripts/validacion_global.py` informa `BUNDLES=22`, `SYNTAX_FAILURES=0`, `BUNDLE_RESIDUE_TOTAL=0`, `HTML_RESIDUE_TOTAL=0` y `GIT_STATUS CLEAN`. La corrección específica de App 20 quedó registrada en un commit independiente después del commit global de limpieza.
+
+Estado final: **22 de 22 aplicaciones depuradas, liberadas y validadas**.
