@@ -3,7 +3,7 @@ import subprocess
 
 ROOT = Path('/home/ubuntu/apps-pymes')
 all_js_files = sorted((ROOT / 'js').glob('*.js'))
-app_js_files = [path for path in all_js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js'}]
+app_js_files = [path for path in all_js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js', 'datos-compartidos.js'}]
 patterns = [
     'LeadModal', 'EmailGate', 'EmailGateModal', 'registrarLead',
     'script.google.com', 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI',

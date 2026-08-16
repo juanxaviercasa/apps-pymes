@@ -5,7 +5,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 html_paths = sorted(path for path in ROOT.glob('*.html') if path.name not in {'index.html', 'guia-uso-22-apps.html'})
 js_files = sorted((ROOT / 'js').glob('*.js'))
-app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js', 'op-runtime.js'}]
+app_js_files = [path for path in js_files if path.name not in {'index.js', 'ayuda-apps.js', 'respaldo-local.js', 'op-runtime.js', 'datos-compartidos.js'}]
 css_files = sorted((ROOT / 'css').glob('*.css'))
 errors = []
 
@@ -41,7 +41,7 @@ for path in html_paths:
     if not title or any(token in title.group(1) for token in ('Ã', 'Â', 'â', 'ð', '�')):
         errors.append(f'{path.name} tiene un título ausente o con codificación dañada.')
     operational = {'crm-pymes', 'flujo-caja-pymes', 'inventario-compras-pymes', 'tareas-proyectos-pymes'}
-    expected = [('./css/operaciones-pyme.css' if name in operational else f'./css/{name}.css'), f'./js/{name}.js', './css/ayuda-apps.css', './js/ayuda-apps.js', './assets/favicon.png']
+    expected = [('./css/operaciones-pyme.css' if name in operational else f'./css/{name}.css'), f'./js/{name}.js', './css/ayuda-apps.css', './js/ayuda-apps.js', './js/datos-compartidos.js', './assets/favicon.png']
     if name in {'generador-cotizaciones', 'creador-facturas-proforma', 'comparador-campanas-avanzado', 'consola-campanas', 'organizador-matriz-contenidos'} or name in operational:
         expected.extend(['./css/respaldo-local.css', './js/respaldo-local.js'])
     for ref in expected:

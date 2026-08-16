@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
+    <script defer src="./js/datos-compartidos.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assets/favicon.png">
@@ -17,7 +18,7 @@
 <!-- NUBEPYME_HELP_END -->
 <link rel="stylesheet" href="./css/respaldo-local.css">
 </head>
-<body>
+<body data-app-id="consola-campanas" data-app-name="Constructor UTM — Consola de Campañas">
     <div id="root">
         <div class="min-h-screen console-grid">
             <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:py-12">
@@ -316,7 +317,7 @@
             </div>
         </div>
     </div>
-<script>window.NP_BACKUP_CONFIG={"appId":"consola-campanas","label":"Consola de campañas","storageKeys":["utm_campaigns"]};</script>
+<script>window.NP_BACKUP_CONFIG={"appId":"consola-campanas","label":"Consola de campañas","storageKeys":["utm_campaigns", "np_shared_v1"]};</script>
 <script src="./js/respaldo-local.js"></script>
 </body>
 </html>
