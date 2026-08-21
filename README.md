@@ -1,0 +1,46 @@
+# NubeParaPymes
+
+> Herramientas web gratuitas, guías prácticas y comparativas para que las pequeñas empresas resuelvan tareas concretas con menos fricción.
+
+[Web del proyecto](https://nubeparapymes.online) · [Abrir herramientas](https://apps.nubeparapymes.online)
+
+## Qué problema resuelve
+
+Las pequeñas empresas suelen perder tiempo en tareas repetitivas: preparar cotizaciones, calcular precios con IGV, revisar SEO, generar documentos, organizar campañas o responder consultas desde WhatsApp. NubeParaPymes reúne utilidades específicas que funcionan directamente en el navegador, sin instalación y sin exigir una cuenta para comenzar.
+
+## Qué incluye
+
+- Generadores de cotizaciones, facturas proforma, códigos QR y documentos comerciales.
+- Calculadoras de precios, descuentos, fletes, préstamos y sobrecostos laborales.
+- Herramientas para SEO básico, titulares, campañas, inventario, CRM y productividad.
+- Guías de uso, comparativas de software y contenidos orientados a decisiones prácticas.
+
+## Arquitectura del proyecto
+
+El repositorio reúne una colección de aplicaciones web estáticas organizadas por herramienta. Cada utilidad dispone de su propia interfaz, estilos y lógica JavaScript, mientras que la web editorial funciona como punto de entrada, orientación y documentación para el catálogo.
+
+## Tecnologías
+
+HTML, CSS, JavaScript, diseño responsive, generación de documentos desde el navegador, SEO on-page y publicación web. El proyecto editorial utiliza WordPress para contenidos, estructura de categorías, páginas informativas y distribución de artículos.
+
+## Ejecutar localmente
+
+```bash
+git clone https://github.com/juanxaviercasa/nube-para-pymes.git
+cd nube-para-pymes
+python -m http.server 8000
+```
+
+Después abre `http://localhost:8000` en el navegador. Algunas herramientas pueden funcionar sin servidor; el catálogo y la web editorial se publican por separado.
+
+## Decisiones de producto
+
+La prioridad es resolver una tarea en pocos pasos, mostrar el resultado con claridad y evitar barreras innecesarias. Cada herramienta debe ser útil por sí misma, pero también conducir a una guía o comparativa cuando el problema requiere una decisión más amplia.
+
+## Estado
+
+Proyecto público en evolución. La versión publicada contiene herramientas y contenidos que se irán ampliando y refinando con base en necesidades reales de pequeñas empresas.
+
+## Autor
+
+**Juan Xavier Cabello** — desarrollo web, producto, contenidos y estrategia editorial.
